@@ -1,0 +1,390 @@
+WEBVTT
+X-TIMESTAMP-MAP=LOCAL:00:00:00.000,MPEGTS:0
+
+00:07.909 --> 00:14.220
+In this lab, you will perform SQL injections, a
+popular attack that targets web applications
+
+00:14.229 --> 00:19.479
+that use structured query language SQL
+injections take advantage of security
+
+00:19.489 --> 00:23.870
+vulnerabilities and the web applications input
+validation mechanisms.
+
+00:24.040 --> 00:28.620
+Many web apps take user input through web forms
+or URL parameters.
+
+00:29.069 --> 00:34.099
+If the developers of the web app have not
+properly mitigated against SQL injections.
+
+00:34.110 --> 00:39.560
+Thread actors can deliberately craft input that
+includes SQL code directly into the queries
+
+00:39.569 --> 00:43.759
+sent to the database.
+This is exactly what you will do in this lab.
+
+00:44.889 --> 00:51.080
+Part one is to perform SQL injections on the
+DVW A app running in your Cali VM
+
+00:51.500 --> 00:54.659
+log in to your Cali VM.
+I already have mine open.
+
+00:55.349 --> 01:02.189
+Step one is to prepare the DV W A for SQL
+injection, open firefox and log in to DV W A
+
+01:02.200 --> 01:04.870
+at 10.6 0.6 0.13.
+
+01:05.669 --> 01:12.319
+Enter admin and password as your credentials
+and log in click DVW A security in the left
+
+01:12.330 --> 01:17.949
+panel change the security level to low click
+submit.
+
+01:19.580 --> 01:24.519
+Step two is to check if DVW A is vulnerable to
+SQL injections,
+
+01:25.379 --> 01:32.239
+click SQL injection in the left pain, enter the
+following single quote space
+
+01:32.250 --> 01:38.739
+or space one equals one space.
+Hashtag Let's look at what this does
+
+01:39.370 --> 01:43.940
+in a typical login scenario.
+When the user clicks submit the application
+
+01:43.949 --> 01:49.779
+takes user values for user name and password
+incorporates them into an SQL query such as
+
+01:49.790 --> 01:53.379
+this one and executes it for an injection
+attack.
+
+01:53.389 --> 01:57.019
+We replace user name and its closing single
+quote with the following.
+
+01:57.489 --> 02:01.349
+This single quote denotes a string.
+And in this case is the beginning of the
+
+02:01.360 --> 02:06.610
+injected input the or is used to modify the
+original query's where clause,
+
+02:07.269 --> 02:10.860
+the one equals one is a condition that always
+evaluates to true.
+
+02:11.289 --> 02:15.279
+And the hashtag ensures that everything that
+follows is common to doubt.
+
+02:16.240 --> 02:21.600
+The result is that the injection bypasses
+authentication and returns all the rows of the
+
+02:21.610 --> 02:25.300
+user's table click submit to execute the
+injection.
+
+02:26.059 --> 02:30.410
+You can see that the injection was successful
+as it returned five user names.
+
+02:31.410 --> 02:35.539
+Now that we know the database is vulnerable in
+steps three through seven,
+
+02:35.550 --> 02:38.860
+we will gather information about the database
+and its structure.
+
+02:39.639 --> 02:44.559
+Step three is to check how many fields are in
+the query that is sent to the database.
+
+02:44.570 --> 02:49.929
+When the user clicks submit, we'll do this by
+entering another SQL injection.
+
+02:51.149 --> 02:55.100
+Highlight the injection in the lab and paste it
+into the user id field.
+
+02:55.589 --> 03:01.279
+Let's look at what this does for this injection.
+We replace user name with the following.
+
+03:01.619 --> 03:07.289
+The one single quote finishes the where query
+and attempts to find a user name with the value
+
+03:07.300 --> 03:09.210
+one which does not exist.
+
+03:09.610 --> 03:14.130
+The order by one is added as part of the
+injection to sort the results of the first
+
+03:14.139 --> 03:17.630
+column.
+And the hashtag ensures everything that follows
+
+03:17.639 --> 03:21.649
+is commented out click submit to execute the
+injection.
+
+03:22.330 --> 03:25.899
+Because we get a response, we know the query
+has at least one field,
+
+03:26.529 --> 03:30.899
+repeat the injection, replacing the second one
+with the two and click.
+
+03:30.910 --> 03:36.910
+Submit a successful response.
+Confirms that we have two fields in the query.
+
+03:37.229 --> 03:42.380
+Repeat, replacing the two for a three and click.
+Submit the unknown column.
+
+03:42.389 --> 03:45.580
+Three error confirms that our query only has
+two fields.
+
+03:45.970 --> 03:49.300
+As you will see later.
+This is the user name and password fields.
+
+03:49.309 --> 03:54.399
+As we saw in the first example, step four is to
+check the database version,
+
+03:54.669 --> 04:01.220
+copy the SQL injection from the lab and then
+paste it into the user id for the DVW A app.
+
+04:02.119 --> 04:07.820
+This injection does the following the first
+part of the injection with the one single quote
+
+04:07.830 --> 04:12.119
+or one equals one will return all the rows in
+the user's table.
+
+04:12.360 --> 04:18.410
+The union select one comma version adds a row
+to the output and returns the version of the
+
+04:18.420 --> 04:21.760
+database.
+Click submit to execute the injection.
+
+04:22.619 --> 04:27.660
+Notice we get all the rows in the user's table
+plus the version of the database at the bottom
+
+04:27.670 --> 04:31.769
+of the output.
+For step five, let's replace version with
+
+04:31.779 --> 04:35.100
+database to see if we can retrieve the name of
+the database.
+
+04:36.339 --> 04:43.119
+The last row of the output shows that the
+database name is DV W A step six is to
+
+04:43.130 --> 04:48.010
+attempt to retrieve all the table names in the
+DVW A database to do this.
+
+04:48.019 --> 04:50.829
+We enter a rather complex SQL injection.
+
+04:51.230 --> 04:52.980
+I'm going to copy it from the lab.
+
+04:55.008 --> 04:59.750
+Let's take a look at its structure again.
+The first part ensures that the WA clause
+
+04:59.760 --> 05:05.820
+always evaluates to true and the unions select
+one statement adds as many roads to the output
+
+05:05.829 --> 05:07.100
+as will be necessary.
+
+05:07.920 --> 05:12.459
+With that part done.
+The next part selects the table underscore name
+
+05:12.470 --> 05:18.579
+metadata from the information underscore schema
+dot tables view the where statement filters the
+
+05:18.589 --> 05:23.170
+metadata to only display regular tables, not
+views inside the DVW.
+
+05:23.190 --> 05:26.730
+A database click submit to execute the
+injection.
+
+05:27.100 --> 05:32.010
+Notice that we get two rows added to the output
+one for each data table found in the
+
+05:32.019 --> 05:38.000
+information underscore schema dot tables view
+the guestbook table and the user's table.
+
+05:38.470 --> 05:40.450
+We are interested in the user's table.
+
+05:41.149 --> 05:45.880
+Step seven is to retrieve the column names from
+the user's table to do this.
+
+05:45.890 --> 05:50.359
+We will query the column schema again.
+I will copy it from the lab.
+
+05:51.869 --> 05:53.690
+Let's take a look at what this does.
+
+05:54.089 --> 05:56.440
+This time we want the column names.
+
+05:57.089 --> 06:01.100
+These come from the information underscore
+schema dot Collins view.
+
+06:02.109 --> 06:06.200
+We then filter the metadata for just the column
+names from the user's table.
+
+06:06.480 --> 06:09.079
+A table name we discovered in the last step.
+
+06:10.160 --> 06:14.700
+Click submit to execute the injection, all the
+columns are now listed.
+
+06:15.079 --> 06:20.230
+The user and password columns are the ones we
+are most interested in now that we have a good
+
+06:20.239 --> 06:23.339
+understanding of the structure of the user's
+table and the DVW,
+
+06:23.410 --> 06:26.529
+a database.
+It's time for step eight in which we will
+
+06:26.540 --> 06:32.410
+retrieve the user's credentials to do this.
+We enter an SQL injection that gets the user
+
+06:32.420 --> 06:35.470
+and password columns from the user's table.
+As shown here,
+
+06:36.290 --> 06:41.179
+I copied the injection from step eight in the
+lab and pasted it into the user id field.
+
+06:41.980 --> 06:44.170
+Click submit to execute the injection.
+
+06:45.089 --> 06:48.320
+All the users and their encrypted passwords are
+now displayed.
+
+06:50.309 --> 06:52.779
+Step nine is to crack the passwords.
+
+06:53.170 --> 06:56.640
+Although we are probably most interested in the
+password for admin,
+
+06:56.899 --> 07:02.420
+let's crack them all select and copy from the
+admin encrypted password to the end of the
+
+07:02.429 --> 07:06.589
+output.
+Open a new tab in the browser and go to cracks
+
+07:06.600 --> 07:12.859
+station dot net paste in your clipboard and
+then delete everything but the password hashes
+
+07:13.489 --> 07:17.320
+answer the capa if necessary and then click
+crack hashes.
+
+07:18.040 --> 07:22.820
+Now we have the passwords for every user in the
+user's table for the DVW A database.
+
+07:23.489 --> 07:27.309
+Part two is to research methods to mitigate SQL
+injections.
+
+07:28.200 --> 07:33.459
+A simple search for SQL injection mitigation
+should yield some appropriate results.
+
+07:33.869 --> 07:38.779
+You should be able to find this cheat sheet
+from a wasp open this and read through the
+
+07:38.790 --> 07:44.470
+detailed explanation of SQL injections and the
+techniques you can recommend to your client to
+
+07:44.480 --> 07:46.140
+prevent these vulnerabilities.
+
+07:47.040 --> 07:52.399
+As you can see, SQL injections are a popular
+attack vector for threat actors as a
+
+07:52.410 --> 07:57.450
+penetration tester, it is your responsibility
+to learn how to mitigate these types of attacks.
+
+07:58.160 --> 08:00.700
+Have fun.
+As you continue to learn more about
+
+08:00.709 --> 08:05.809
+vulnerabilities you can exploit in penetration
+testing and how these vulnerabilities might be
+
+08:05.820 --> 08:06.450
+mitigated.
+
