@@ -1,0 +1,402 @@
+WEBVTT
+X-TIMESTAMP-MAP=LOCAL:00:00:00.000,MPEGTS:0
+
+00:07.769 --> 00:12.699
+Passwords are one of the weakest links in the
+security chain for a variety of reasons.
+
+00:12.710 --> 00:18.959
+But primarily because of human behavior, people
+choose weak passwords and use the same password
+
+00:18.969 --> 00:23.280
+across multiple accounts.
+These passwords are often easy to brute force
+
+00:23.290 --> 00:27.010
+with a variety of tools.
+And because passwords are typically stored in
+
+00:27.020 --> 00:33.110
+encrypted hashes tools have evolved that can
+crack these hashes revealing the passwords.
+
+00:33.119 --> 00:36.139
+In this lab.
+You will use three popular tools to crack
+
+00:36.150 --> 00:41.099
+passwords, hash cat, John, the Ripper and
+Rainbow crack.
+
+00:41.610 --> 00:46.700
+It is important to note that while these are
+legitimate security tools always make sure you
+
+00:46.709 --> 00:50.849
+have proper written authorization before
+attempting to crack passwords for a client
+
+00:50.860 --> 00:54.740
+engagement.
+Part one is to investigate the password tools
+
+00:54.750 --> 01:01.069
+you have on your call.
+EVM log in to your Cali BM from the
+
+01:01.080 --> 01:03.790
+applications menu select password attacks.
+
+01:04.370 --> 01:07.709
+There are a ton of tools available in four
+categories.
+
+01:14.290 --> 01:17.269
+Part two is to use hash cat to crack passwords.
+
+01:17.949 --> 01:23.220
+Hash cat is a popular password cracking tool
+used by security professionals to recover lost
+
+01:23.230 --> 01:29.709
+passwords, conduct security assessments and
+test the strength of passwords in an actual
+
+01:29.720 --> 01:33.180
+exploit threat actors first compromise a
+vulnerable system.
+
+01:33.550 --> 01:38.819
+They then look for and copy a password file
+containing stored password hashes that can be
+
+01:38.830 --> 01:39.940
+cracked offline.
+
+01:40.360 --> 01:46.190
+Step one is to simulate this by creating a
+password file that contains MD five hashes.
+
+01:46.199 --> 01:53.080
+You will crack, copy the echo scripts from your
+lab, open a terminal and paste in the script.
+
+01:53.830 --> 01:56.500
+Use cat to verify the hashes you created.
+
+01:57.029 --> 02:02.260
+Step two is to investigate the man pages for
+hash catt inner man hash cat.
+
+02:03.008 --> 02:09.580
+Take note of the two options.
+M and A M defines the hash type and A
+
+02:09.589 --> 02:11.210
+defines the attack mode.
+
+02:12.089 --> 02:17.300
+Tap the space bar, scrolling through the rest
+of the man pages until you find the attack mode
+
+02:17.309 --> 02:19.440
+and hash type configuration options.
+
+02:20.940 --> 02:23.559
+You will use a straight or dictionary tack.
+
+02:23.779 --> 02:29.220
+And the MD five.
+Hashtag step three is to view Callie's
+
+02:29.229 --> 02:36.080
+available word lists that can be used to crack
+hashes inner ls hyphen LH and then the path to
+
+02:36.089 --> 02:37.419
+the word list directory.
+
+02:38.350 --> 02:42.839
+Note that the size of the rock UG zip file is
+51 megabytes.
+
+02:43.229 --> 02:49.339
+It contains over 14 million passwords, change
+your directory to the wordless directory,
+
+02:50.509 --> 02:57.380
+unzip the compressed rock U file list the
+directory contents to verify the rock U dot
+
+02:57.389 --> 02:59.050
+TXT file is unzipped.
+
+03:00.029 --> 03:06.210
+Use more to display raq notice how many easy
+passwords are in the file
+
+03:07.380 --> 03:10.330
+in our queue to quit the list and return to the
+home directory.
+
+03:10.539 --> 03:16.889
+Step four is to use hash catt to crack the
+passwords in the file of password hashes using
+
+03:16.899 --> 03:21.130
+pseudo enter the hashtag command setting the
+options M and A to zero.
+
+03:21.940 --> 03:28.380
+The O option defines the output file, enter
+cracks dot TXT as the output file and the file
+
+03:28.389 --> 03:30.000
+with the hashes as the input.
+
+03:30.300 --> 03:33.419
+Finally specify the rock you file as the word
+list.
+
+03:33.429 --> 03:40.179
+Hash catt should use press enter and hash catt
+starts depending on your computer.
+
+03:40.190 --> 03:44.699
+It should only take a few seconds to crack the
+passwords as none of them were complex.
+
+03:46.139 --> 03:52.089
+View the contents of the output file to see the
+hashes and the cracked passwords note that you
+
+03:52.100 --> 03:54.190
+must use root privileges to view it.
+
+03:54.500 --> 03:59.729
+Part three is to use John, the ripper to crack
+your password file using the rock you word list.
+
+04:00.490 --> 04:07.309
+Step one is to view the help file for John pipe.
+John hyphen H to more if you want to
+
+04:07.320 --> 04:12.820
+view the help contents one screen at a time,
+step two is to use John to crack the password
+
+04:12.830 --> 04:19.529
+file, copy the command from the lab or enter
+the John command manually specifying raw MD
+
+04:19.540 --> 04:22.720
+five as the format and your password hash file.
+
+04:24.190 --> 04:26.799
+Notice that three passwords are cracked
+immediately.
+
+04:27.660 --> 04:32.029
+If you let it run long enough, it will
+eventually crack the rest of the passwords
+
+04:32.299 --> 04:34.149
+because they are not too complex.
+
+04:35.059 --> 04:37.149
+But let's enter queue to abort the session.
+
+04:38.679 --> 04:42.890
+Step three is to use a word list with John to
+crack the password file,
+
+04:43.970 --> 04:49.709
+copy the command from the lab or manually enter
+the John command using the word list option to
+
+04:49.720 --> 04:56.089
+specify the directory where you decompressed
+rock, U finish the command as previously
+
+04:56.100 --> 05:00.279
+specifying the MD five format and the file with
+your password hashes,
+
+05:01.670 --> 05:05.380
+skipping step four.
+What you can do on your own step five is to
+
+05:05.390 --> 05:07.470
+show the passwords you just cracked.
+
+05:08.750 --> 05:14.359
+Enter John with the show option and then
+specify the MD five format and the file with
+
+05:14.369 --> 05:19.239
+your password.
+Hashes do step six on your own time.
+
+05:19.609 --> 05:25.000
+Try some more complex passwords of varying
+links from 4 to 8 characters and see how long
+
+05:25.010 --> 05:29.619
+they take to crack.
+Part four is to use rainbow crack and rainbow
+
+05:29.630 --> 05:31.399
+tables to crack some hashes.
+
+05:32.059 --> 05:38.049
+Step one is to install rainbow crack, enter the
+pseudo app to install rainbow crack command.
+
+05:38.429 --> 05:42.859
+Step two is to generate some rainbow tables
+with the RT G command.
+
+05:42.989 --> 05:46.470
+Rainbow tables can be generated or downloaded
+from the internet.
+
+05:46.480 --> 05:51.149
+They can be very large from 20 gigabytes to
+more than a terabyte for this lab.
+
+05:51.160 --> 05:54.290
+You will create a small rainbow table that you
+can use to crack.
+
+05:54.299 --> 05:59.450
+Very simple passwords display the help pages
+for RT G here.
+
+05:59.459 --> 06:04.320
+You can see all the options and algorithms you
+can use to generate rainbow tables.
+
+06:04.329 --> 06:07.869
+Notice at the bottom there are some examples of
+how to use the command.
+
+06:08.200 --> 06:10.790
+Let's create a table using the following
+options.
+
+06:11.399 --> 06:17.410
+MD five lower case letters with a minimum of
+one character and a maximum of three characters.
+
+06:17.420 --> 06:23.529
+Zero for the reduction function 1000 for chain
+length or the number of hash computations
+
+06:23.540 --> 06:29.190
+performed 1000 for the number of chains and
+zero for the chain offset.
+
+06:29.859 --> 06:35.100
+Further explanation of some of these options is
+beyond the scope of this lab to verify the
+
+06:35.109 --> 06:36.250
+table was created.
+
+06:36.459 --> 06:42.070
+Navigate to the user share rainbow crack
+directory and list the contents the file with
+
+06:42.079 --> 06:44.809
+the dot RT extension is your rainbow table.
+
+06:45.230 --> 06:49.760
+Step three is to crack some lower case
+passwords that are three characters long.
+
+06:49.769 --> 06:54.070
+First to improve the efficiency and speed of
+your new rainbow table.
+
+06:54.309 --> 06:56.209
+Enter the RT sort command.
+
+06:56.459 --> 07:00.209
+You can use a period to specify all the files
+in your current directory.
+
+07:00.309 --> 07:03.209
+As your dot RT file is the only rainbow table.
+
+07:03.619 --> 07:09.829
+Let's crack a three letter password copy and
+paste the echo command from the lab to generate
+
+07:09.839 --> 07:16.279
+an MD five hash for the password dog, copy the
+generated hash and use R crack with a
+
+07:16.290 --> 07:19.940
+period again because your rainbow table is in
+the current directory.
+
+07:19.950 --> 07:26.140
+And option H to specify you are cracking a
+single hash paste in your copied hash
+
+07:26.690 --> 07:30.019
+press enter your hash is cracked within
+milliseconds.
+
+07:30.809 --> 07:36.940
+Now let's crack a password file, copy the echo
+commands from your lab and paste them into the
+
+07:36.950 --> 07:38.339
+Cali VM command line.
+
+07:39.119 --> 07:43.940
+This time use the option L to tell R crack to
+use the hash file you created.
+
+07:43.950 --> 07:46.640
+Press enter again in less than a second.
+
+07:47.008 --> 07:48.750
+All three passwords are cracked.
+
+07:49.369 --> 07:52.489
+Step four is to search the internet for rainbow
+tables.
+
+07:52.829 --> 07:56.630
+Enter rainbow table.
+Download and look through the search results.
+
+07:56.739 --> 07:59.630
+Project.
+Rainbow Crack is an excellent source for
+
+07:59.640 --> 08:00.700
+rainbow tables.
+
+08:01.470 --> 08:06.549
+Hopefully, if you didn't already know now, you
+understand why it is so important that we use
+
+08:06.559 --> 08:08.000
+complex passwords.
+
+08:08.269 --> 08:14.359
+The more complex a password, the more difficult
+it is to crack as a pin tester.
+
+08:14.369 --> 08:19.279
+You can use tools like hash catt John and
+Rainbow crack to demonstrate password
+
+08:19.290 --> 08:25.450
+vulnerability to your clients have fun as you
+further explore password tools and their uses.
+
