@@ -1,0 +1,591 @@
+WEBVTT
+X-TIMESTAMP-MAP=LOCAL:00:00:00.000,MPEGTS:0
+
+1
+00:00.200 --> 00:02.350
+<v Instructor>In this lab, you will use Wireshark</v>
+
+2
+00:02.350 --> 00:04.770
+to capture and inspect web traffic:
+
+3
+00:04.770 --> 00:07.280
+Telnet traffic, and SSH traffic.
+
+4
+00:07.280 --> 00:10.080
+Wireshark is a network protocol analyzer
+
+5
+00:10.080 --> 00:12.700
+that lets you see what's happening on your network
+
+6
+00:12.700 --> 00:14.570
+at a microscopic level.
+
+7
+00:14.570 --> 00:18.630
+You can capture packets and store them for offline analysis.
+
+8
+00:18.630 --> 00:21.880
+Wireshark includes many tools for deep inspection
+
+9
+00:21.880 --> 00:24.660
+of hundreds of network protocols.
+
+10
+00:24.660 --> 00:28.733
+Step one is open a terminal window in the CSE-LABVM.
+
+11
+00:30.212 --> 00:32.962
+(mouse clicking)
+
+12
+00:36.800 --> 00:40.700
+Step two is explore the Wireshark protocol analyzer.
+
+13
+00:40.700 --> 00:43.040
+To capture traffic on your VM,
+
+14
+00:43.040 --> 00:46.710
+you need to run Wireshark with escalated privileges.
+
+15
+00:46.710 --> 00:48.890
+Enter the sudo wireshark command,
+
+16
+00:48.890 --> 00:51.600
+and then enter password for the password.
+
+17
+00:51.600 --> 00:52.673
+Wireshark will open.
+
+18
+01:04.080 --> 01:07.060
+Under the listing of interfaces, we will be capturing
+
+19
+01:07.060 --> 01:09.470
+traffic from both the ethernet interface
+
+20
+01:09.470 --> 01:12.288
+and the loopback interface, so click any
+
+21
+01:12.288 --> 01:13.830
+(mouse clicking)
+
+22
+01:13.830 --> 01:18.630
+and then click Capture, Start.
+
+23
+01:18.630 --> 01:23.630
+You can also click the Sharkfin icon on the toolbar.
+
+24
+01:24.112 --> 01:24.945
+(mouse clicking)
+
+25
+01:24.945 --> 01:26.293
+Open Firefox.
+
+26
+01:28.550 --> 01:32.163
+In Firefox, enter cisco.com.
+
+27
+01:35.090 --> 01:40.090
+Return to Wireshark, and click Capture, Stop.
+
+28
+01:40.260 --> 01:43.050
+Alternatively, you can click the square button
+
+29
+01:43.050 --> 01:44.373
+next to the Sharkfin.
+
+30
+01:45.890 --> 01:46.826
+Close Firefox.
+
+31
+01:46.826 --> 01:49.940
+(mouse clicking)
+
+32
+01:49.940 --> 01:53.120
+In Wireshark, you will see the filter field
+
+33
+01:53.120 --> 01:56.313
+and three key panes or work areas.
+
+34
+01:57.250 --> 02:00.490
+The Apply a display filter field is
+
+35
+02:00.490 --> 02:02.460
+directly below the toolbar.
+
+36
+02:02.460 --> 02:05.430
+The packet list pane includes the following columns
+
+37
+02:05.430 --> 02:08.280
+for each captured packet: Number,
+
+38
+02:08.280 --> 02:11.530
+the number of packet and the numerical order,
+
+39
+02:11.530 --> 02:13.673
+Time stamp for this packet,
+
+40
+02:14.520 --> 02:17.350
+Source IP address for this packet,
+
+41
+02:17.350 --> 02:19.883
+Destination IP address for this packet,
+
+42
+02:20.770 --> 02:25.690
+the Protocol of this packet, the number of bytes captured
+
+43
+02:25.690 --> 02:30.090
+for this packet, and any additional information.
+
+44
+02:30.090 --> 02:33.890
+The packets detail pane shows the protocols
+
+45
+02:33.890 --> 02:37.110
+and protocol fields of the selected packet.
+
+46
+02:37.110 --> 02:40.240
+Notice that the fields can be expanded or collapsed
+
+47
+02:40.240 --> 02:43.083
+by clicking on the arrow next to the field.
+
+48
+02:44.470 --> 02:47.530
+The bytes pane shows the byte details
+
+49
+02:47.530 --> 02:48.840
+of the selected packet.
+
+50
+02:48.840 --> 02:50.940
+As you select parts of the packet
+
+51
+02:50.940 --> 02:53.060
+in the packet details pane,
+
+52
+02:53.060 --> 02:55.530
+the corresponding bytes will be highlighted
+
+53
+02:55.530 --> 02:56.700
+in the packets pane.
+
+54
+02:56.700 --> 02:59.640
+The left side shows the hexadecimal representation
+
+55
+02:59.640 --> 03:00.870
+of the bytes.
+
+56
+03:00.870 --> 03:03.390
+Step three is capture and analyze
+
+57
+03:03.390 --> 03:05.830
+unencrypted Telnet traffic.
+
+58
+03:05.830 --> 03:08.093
+In Wireshark, start a new capture.
+
+59
+03:10.530 --> 03:13.760
+In the Unsaved packets dialog box,
+
+60
+03:13.760 --> 03:15.699
+Click Continue without Saving.
+
+61
+03:15.699 --> 03:16.532
+(mouse clicking)
+
+62
+03:16.532 --> 03:18.940
+This will clear out the packets from your last capture
+
+63
+03:18.940 --> 03:20.480
+and start a new capture.
+
+64
+03:20.480 --> 03:24.380
+On your desktop, double click the Terminal icon
+
+65
+03:24.380 --> 03:26.093
+to open a new terminal window.
+
+66
+03:27.940 --> 03:30.730
+You can simulate a remote login to your VM
+
+67
+03:30.730 --> 03:34.580
+by entering the telnet localhost command,
+
+68
+03:34.580 --> 03:38.513
+and then logging in as cisco with password as the password.
+
+69
+03:41.920 --> 03:46.480
+Enter exit to end this Telnet session.
+
+70
+03:46.480 --> 03:49.263
+Return to Wireshark and stop the capture.
+
+71
+03:50.120 --> 03:52.670
+In the Apply a display filter field,
+
+72
+03:52.670 --> 03:54.823
+type telnet and press enter.
+
+73
+03:56.280 --> 03:59.860
+On the toolbar, click the magnifying glass icon
+
+74
+03:59.860 --> 04:01.423
+to find a packet.
+
+75
+04:02.340 --> 04:04.530
+Additional search features are now shown
+
+76
+04:04.530 --> 04:07.030
+below the Apply a display filter field.
+
+77
+04:07.030 --> 04:10.010
+Click the arrows next to Display filter,
+
+78
+04:10.010 --> 04:12.101
+and change to a String.
+
+79
+04:12.101 --> 04:14.100
+(mouse clicking)
+
+80
+04:14.100 --> 04:16.150
+Then click the arrows next to Packet list,
+
+81
+04:16.150 --> 04:18.669
+and change it to Packet details.
+
+82
+04:18.669 --> 04:20.620
+(mouse clicking)
+
+83
+04:20.620 --> 04:24.010
+To find the packet requesting login information,
+
+84
+04:24.010 --> 04:26.297
+type labvm login:.
+
+85
+04:29.250 --> 04:30.870
+Click Find.
+
+86
+04:30.870 --> 04:31.960
+(mouse clicking)
+
+87
+04:31.960 --> 04:33.520
+Wireshark will highlight the packet
+
+88
+04:33.520 --> 04:36.220
+that contains labvm login.
+
+89
+04:36.220 --> 04:39.100
+You can tell that the text was sent unencrypted
+
+90
+04:39.100 --> 04:40.920
+because you can read it.
+
+91
+04:40.920 --> 04:44.180
+In the Packet list pane, click the highlighted packet
+
+92
+04:44.180 --> 04:48.410
+with labvm login as the data to select it.
+
+93
+04:48.410 --> 04:51.610
+To find the username and password, use your down arrow
+
+94
+04:51.610 --> 04:53.893
+on the keyboard to select the next packet.
+
+95
+04:55.380 --> 04:57.740
+In the Packet details pane, you should see
+
+96
+04:57.740 --> 05:00.470
+the value for data under telnet is the first letter
+
+97
+05:00.470 --> 05:05.000
+you typed in the field for the labvm login: prompt
+
+98
+05:05.005 --> 05:07.120
+which was c for Cisco.
+
+99
+05:07.120 --> 05:08.750
+If you click the down arrow again,
+
+100
+05:08.750 --> 05:11.900
+you will see the next packet's data is also c
+
+101
+05:11.900 --> 05:15.235
+because the source and destination of the same interface
+
+102
+05:15.235 --> 05:19.010
+loopback 127.0.0.1.
+
+103
+05:19.010 --> 05:21.473
+The packet is listed twice by Wireshark.
+
+104
+05:22.310 --> 05:24.260
+Continue to press the down arrow key
+
+105
+05:24.260 --> 05:26.030
+until you reach the last packet
+
+106
+05:26.030 --> 05:29.783
+with a data value of o for the username Cisco.
+
+107
+05:32.230 --> 05:35.270
+Click the down arrow for the next packet
+
+108
+05:35.270 --> 05:39.040
+until you see the data password.
+
+109
+05:39.040 --> 05:41.060
+Continue pressing the down arrow to read
+
+110
+05:41.060 --> 05:43.050
+the data of the next eight packets
+
+111
+05:43.050 --> 05:45.350
+which will reveal one letter at a time.
+
+112
+05:45.350 --> 05:49.300
+That password is the password for the user Cisco.
+
+113
+05:49.300 --> 05:54.300
+P-a-s-s-w-o-r-d.
+
+114
+05:55.580 --> 05:57.510
+If you continue to press the down arrow
+
+115
+05:57.510 --> 05:59.900
+through the rest of the captured packets,
+
+116
+05:59.900 --> 06:02.640
+you will see all the texts sent and received
+
+117
+06:02.640 --> 06:06.260
+during the Telnet session, including your exit command
+
+118
+06:06.260 --> 06:08.653
+at the log out message.
+
+119
+06:10.030 --> 06:14.670
+Step four is capture and analyze encrypted SSH traffic.
+
+120
+06:14.670 --> 06:16.023
+Start a new capture.
+
+121
+06:17.085 --> 06:17.918
+(mouse clicking)
+
+122
+06:17.918 --> 06:20.220
+In the Unsaved packets dialog,
+
+123
+06:20.220 --> 06:22.193
+click Continue without Saving.
+
+124
+06:23.460 --> 06:26.300
+This will clear out the packets from your last capture
+
+125
+06:26.300 --> 06:27.980
+and start a new capture.
+
+126
+06:27.980 --> 06:30.283
+Return to your open Terminal window,
+
+127
+06:31.560 --> 06:32.950
+(mouse clicking)
+
+128
+06:32.950 --> 06:36.140
+and enter the command SSH localhost.
+
+129
+06:36.140 --> 06:38.490
+If this is your first time to use the command,
+
+130
+06:38.490 --> 06:41.950
+the system warns you about the authenticity of localhost
+
+131
+06:41.950 --> 06:44.410
+and asks you if you want to continue.
+
+132
+06:44.410 --> 06:48.103
+Enter yes, and then password as the password to log in.
+
+133
+06:50.560 --> 06:54.070
+Enter exit to end the SSH session.
+
+134
+06:54.070 --> 06:56.399
+Return to Wireshark and stop the Capture.
+
+135
+06:56.399 --> 06:58.360
+(mouse clicking)
+
+136
+06:58.360 --> 07:00.530
+If you left telnet as the search term
+
+137
+07:00.530 --> 07:02.940
+in the Apply display filter field,
+
+138
+07:02.940 --> 07:04.800
+no packets will be listed.
+
+139
+07:04.800 --> 07:07.743
+Change the search term from telnet to ssh.
+
+140
+07:08.920 --> 07:12.650
+All the packets from your SSH session should now be shown 
+
+141
+07:12.650 --> 07:14.860
+in the packet list pane.
+
+142
+07:14.860 --> 07:19.120
+In the packet details pane, expand the SSH Protocol fields
+
+143
+07:19.120 --> 07:20.423
+to view the content.
+
+144
+07:23.480 --> 07:26.730
+In the packet list pane, click the first packet.
+
+145
+07:26.730 --> 07:31.510
+Use the down arrow to view a variety of SSH packets.
+
+146
+07:31.510 --> 07:34.230
+Notice that the SSH Protocol field shows
+
+147
+07:34.230 --> 07:36.453
+that all the data is encrypted.
+

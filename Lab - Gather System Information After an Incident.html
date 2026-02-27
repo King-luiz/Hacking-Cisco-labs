@@ -1,0 +1,505 @@
+<!DOCTYPE html><html><head>
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article 51d905b3-d7ce-4568-a00c-b32b108ea4af remove-padding-top remove-padding-bottom ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$391381205$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+              <div class="article__header-inner ">
+                  
+                    <!--?lit$391381205$--> <div class=" article__title ">
+                      <!--?lit$391381205$--><heading-view aria-hidden="true" id="51d905b3-d7ce-4568-a00c-b32b108ea4af-heading-view" headingtitle="Lab - Gather System Information After an Incident" modelid="51d905b3-d7ce-4568-a00c-b32b108ea4af" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="js-heading is-incomplete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$391381205$-->Incomplete &nbsp;<!--?lit$391381205$-->Lab - Gather System Information After an Incident</span>
+        </div>
+      </div>
+    </heading-view>
+                        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+                        <span class="accessibility-completion-indicator"><!--?lit$391381205$-->Incomplete </span>
+                        <!--?lit$391381205$-->Lab - Gather System Information After an Incident</div>
+                      </div>
+                  <!--?lit$391381205$-->
+                  <!--?lit$391381205$-->
+                  <!--?lit$391381205$-->
+                  <!--?lit$391381205$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$391381205$--><!---->
+                                    <block-view modelid="c16dd3d3-5bd2-4f6e-a2bf-4b5415155a1d" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 50%;"><!---->
+                
+                <div data-socialgoodpulse-id="c16dd3d3-5bd2-4f6e-a2bf-4b5415155a1d" class="c16dd3d3-5bd2-4f6e-a2bf-4b5415155a1d block remove-padding-top remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="c16dd3d3-5bd2-4f6e-a2bf-4b5415155a1d" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$391381205$-->
+                  <!--?lit$391381205$-->
+                  <!--?lit$391381205$-->
+                  <!--?lit$391381205$-->
+                  <!--?lit$391381205$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$391381205$--><!----><text-view modelid="3fae2cc2-8700-4331-a0a9-68a81e7ec871" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="3fae2cc2-8700-4331-a0a9-68a81e7ec871" class="component text 3fae2cc2-8700-4331-a0a9-68a81e7ec871  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$391381205$-->
+                  <!--?lit$391381205$-->
+                  <!--?lit$391381205$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$391381205$--><h2>Objectives</h2> <p class="Bulletlevel1">●<span style="font-size:7.0pt;font-family:Webdings"><span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span></span>Collect system information after an incident has occurred.</p> <p class="Bulletlevel1">●<span style="font-size:7.0pt;font-family:Webdings"><span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span></span>View logs for potential intrusions.</p> <h2>Background / Scenario</h2> <p class="BodyTextL25">When an incident occurs in an organization, people responsible must know how to respond. An organization needs to develop an incident response plan and put together a Computer Security Incident Response Team (CSIRT) to manage the response. In this lab, you will gather system information and review logs after an incident has occurred. Doing these tasks immediately after the incident is important because any data residing in RAM will be gone when the system is shut down.</p> <h2>Required Resources</h2> <p class="BodyTextL25">PC with the <b>CSE-LABVM</b> installed in VirtualBox</p> <h2>Instructions</h2> <h2 style="margin-left:0in;text-indent:0in">Step 1: Open a terminal window in the CSE-LABVM.</h2> <p class="SubStepAlpha">&nbsp;a.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span>Launch the <b>CSE-LABVM</b>.</p> <p class="SubStepAlpha">&nbsp;b.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span>Double-click the <b>Terminal</b> icon to open a terminal.</p> <h2 style="margin-left:0in;text-indent:0in">Step 2: Collect volatile information of the compromised system.</h2> <p class="BodyTextL25">In this step, you will create a file called <b>report.txt</b> that includes a variety of system information that can be used for incident analysis. This report can then be transferred to a USB drive, emailed, or uploaded to a cloud server to preserve the information. Then the system can be taken down.</p> <p class="SubStepAlpha">&nbsp;a.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span>Switch to the root user with the <b>sudo su</b> command. Enter <b>password</b> as the root password.</p> <p class="CMD">cisco@labvm:~$ <b>sudo su</b></p> <p class="CMD">[sudo] password for cisco: <b>password</b></p> <p class="CMD">root@labvm:/home/cisco# </p> <p class="SubStepAlpha">&nbsp;b.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span>Enter the <b>echo</b> command, and then specify a heading for a newly created file named <b>report.txt</b>. Enter the <b>cat</b> command to review the new file.</p> <p class="CMD">root@labvm:/home/cisco# <b>echo Incident Investigator Report &gt; report.txt</b></p> <p class="CMD">root@labvm:/home/cisco# <b>cat report.txt</b></p> <p class="CMDOutput">Incident Investigator Report</p> <p class="CMD">root@labvm:/home/cisco# </p> <p class="SubStepAlpha">&nbsp;c.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span>Enter the <b>date</b> command and redirect the date and timestamp to the <b>report.txt</b> file. Be sure to use the double angle brackets (<b>&gt;&gt;</b>) to append to the <b>report.txt </b>file. Otherwise, you will replace the previous content.</p> <p class="BodyTextL50"><b>Note</b>: To better document the content stored in report.txt, use the <b>echo</b> command to add a subheading as shown here for <b>Start Date and Time</b>. Each substep will specify a subheading for you to append before you gather information.</p> <p class="CMD">root@labvm:/home/cisco# <b>echo =====Start Date and Time===== &gt;&gt; report.txt</b></p> <p class="CMD">root@labvm:/home/cisco# <b>date &gt;&gt; report.txt</b></p> <p class="SubStepAlpha">&nbsp;d.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span>Enter the <b>uname</b> command to print system information. Use the <b>-a</b> option to append all system information to the <b>report.txt</b> file.</p> <p class="CMD">root@labvm:/home/cisco# <b>echo =====System Information===== &gt;&gt; report.txt</b></p> <p class="CMD">root@labvm:/home/cisco# <b>uname -a &gt;&gt; report.txt</b></p> <p class="SubStepAlpha">&nbsp;e.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span>Enter the <b>ifconfig -a</b> command and append all network interface information to the <b>report.txt</b> file. </p> <p class="CMD">root@labvm:/home/cisco# <b>echo =====Network Interfaces===== &gt;&gt;</b><b>report.txt</b></p> <p class="CMD">root@labvm:/home/cisco# <b>ifconfig -a &gt;&gt; report.txt</b></p> <p class="SubStepAlpha">&nbsp;f.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>The <b>netstat</b> command can collect all the network statistics. Enter the command with the options <b>-ano</b> to collect data on all sockets (<b>-a</b>), IP addresses instead of domain names (<b>-n</b>), and information related to networking times (<b>-o</b>). Append the output to the <b>report.txt</b> file.</p> <p class="CMD">root@labvm:/home/cisco# <b>echo =====Network Statistics===== &gt;&gt; report.txt</b></p> <p class="CMD">root@labvm:/home/cisco# <b>netstat -ano &gt;&gt; report.txt</b></p> <p class="SubStepAlpha">&nbsp;g.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span>The <b>ps</b> command reports a snapshot of the current processes running on the system. Enter the command with the options <b>-axu</b> to list every process running on the system (<b>-a</b> and <b>-x</b>) and in a user-oriented format (<b>-u</b>). Append the output to the <b>report.txt</b> file.</p> <p class="CMD">root@labvm:/home/cisco# <b>echo =====Processes===== &gt;&gt; report.txt</b></p> <p class="CMD">root@labvm:/home/cisco# <b>ps axu &gt;&gt; report.txt</b></p> <p class="SubStepAlpha">&nbsp;h.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span>The route command lists the routing table currently used by the system. Enter the command with the option <b>-n</b> to list IP addresses instead of trying to determine host names. Append the output to the <b>report.txt</b> file.</p> <p class="CMD">root@labvm:/home/cisco# <b>echo =====Routing Table===== &gt;&gt; report.txt</b></p> <p class="CMD">root@labvm:/home/cisco# <b>route -n &gt;&gt; report.txt</b></p> <p class="SubStepAlpha">&nbsp;i.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>Enter the <b>date</b> command and append the date and timestamp to the end of the file to complete the report.</p> <p class="CMD">root@labvm:/home/cisco# <b>echo =====End Date and Time===== &gt;&gt; report.txt</b></p> <p class="CMD">root@labvm:/home/cisco# <b>date&gt;&gt; report.txt </b></p> <p class="SubStepAlpha">&nbsp;j.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>Use the <b>cat</b> command and pipe the output to the <b>less</b> command to view <b>report.txt</b> one page or line at a time. Press the <b>spacebar</b> to scroll down by page or press <b>Enter</b> to scroll down by a single line. Type <b>q</b> when finished. </p> <p class="CMD">root@labvm:/home/cisco# <b>cat report.txt | less</b></p> <p class="CMDOutput">Incident Investigator Report</p> <p class="CMDOutput">=====Start Date and Time=====</p> <p class="CMDOutput">Wed 24 Mar 2021 05:06:53 PM UTC</p> <p class="CMDOutput">=====System Information=====</p> <p class="CMDOutput">Linux labvm 5.4.0-67-generic #75-Ubuntu SMP Fri Feb 19 18:03:38 UTC 2021 x86_64 x86_64 x86_64 GNU/Linux</p> <p class="CMDOutput">=====Network Interfaces=====</p> <p class="CMDOutput">enp0s3: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;&nbsp; mtu 1500</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; inet 10.0.2.15&nbsp; netmask 255.255.255.0&nbsp; broadcast 10.0.2.255</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; inet6 fe80::a00:27ff:feb5:4bb0&nbsp; prefixlen 64&nbsp; scopeid 0x20&lt;link&gt;</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ether 08:00:27:b5:4b:b0&nbsp; txqueuelen 1000&nbsp; (Ethernet)</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RX packets 47719&nbsp; bytes 36618515 (36.6 MB)</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RX errors 0&nbsp; dropped 0&nbsp; overruns 0&nbsp; frame 0</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TX packets 31406&nbsp; bytes 3590109 (3.5 MB)</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TX errors 0&nbsp; dropped 0 overruns 0&nbsp; carrier 0&nbsp; collisions 0</p> <p class="CMDOutput">lo: flags=73&lt;UP,LOOPBACK,RUNNING&gt;&nbsp; mtu 65536</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; inet 127.0.0.1&nbsp; netmask 255.0.0.0</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; inet6 ::1&nbsp; prefixlen 128&nbsp; scopeid 0x10&lt;host&gt;</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loop&nbsp; txqueuelen 1000&nbsp; (Local Loopback)</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RX packets 2292&nbsp; bytes 244651 (244.6 KB)</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; RX errors 0&nbsp; dropped 0&nbsp; overruns 0&nbsp; frame 0</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; TX packets 2292&nbsp; bytes 244651 (244.6 KB)</p> <p class="CMDOutput">&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;TX errors 0&nbsp; dropped 0 overruns 0&nbsp; carrier 0&nbsp; collisions 0</p> <p class="CMDOutput">=====Network Statistics=====</p> <p class="CMDOutput">Active Internet connections (servers and established)</p> <p class="CMDOutput">&lt;output omitted&gt;</p> <p class="CMDOutput">unix&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [ ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STREAM&nbsp;&nbsp;&nbsp;&nbsp; CONNECTED&nbsp;&nbsp;&nbsp;&nbsp; 22100&nbsp;&nbsp;&nbsp; </p> <p class="CMDOutput">unix&nbsp; 3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [ ]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STREAM&nbsp; &nbsp;&nbsp;&nbsp;CONNECTED&nbsp;&nbsp;&nbsp;&nbsp; 18249&nbsp;&nbsp;&nbsp; </p> <p class="CMDOutput">=====Processes=====</p> <p class="CMDOutput">USER&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PID %CPU %MEM&nbsp;&nbsp;&nbsp; VSZ&nbsp;&nbsp; RSS TTY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; STAT START&nbsp;&nbsp; TIME COMMAND</p> <p class="CMDOutput">root&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1&nbsp; 0.0&nbsp; 0.5 101896 10768 ?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ss&nbsp;&nbsp; Mar23&nbsp;&nbsp; 0:03 /sbin/init</p> <p class="CMDOutput">root&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2&nbsp; 0.0&nbsp; 0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp; 0 ?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; S&nbsp;&nbsp;&nbsp; Mar23&nbsp;&nbsp; 0:00 [kthreadd]</p> <p class="CMDOutput">root&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 3&nbsp; 0.0&nbsp; 0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp; 0 ?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I&lt;&nbsp;&nbsp; Mar23&nbsp;&nbsp; 0:00 [rcu_gp]</p> <p class="CMDOutput">&lt;output omitted&gt;</p> <p class="CMDOutput">root&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5319&nbsp; 0.0&nbsp; 0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp; 0 ?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I&nbsp;&nbsp;&nbsp; 16:31&nbsp;&nbsp; 0:00 [kworker/0:2-events]</p> <p class="CMDOutput">root&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5490&nbsp; 0.0&nbsp; 0.1&nbsp; 11492&nbsp; 3332 pts/1&nbsp;&nbsp;&nbsp; R+&nbsp; &nbsp;17:06&nbsp;&nbsp; 0:00 ps axu</p> <p class="CMDOutput">=====Routing Table=====</p> <p class="CMDOutput">Kernel IP routing table</p> <p class="CMDOutput">Destination&nbsp;&nbsp;&nbsp;&nbsp; Gateway&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Genmask&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Flags Metric Ref&nbsp;&nbsp;&nbsp; Use Iface</p> <p class="CMDOutput">0.0.0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 10.0.2.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.0.0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; UG&nbsp;&nbsp;&nbsp; 100&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 enp0s3</p> <p class="CMDOutput">10.0.2.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.0.0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;255.255.255.0&nbsp;&nbsp; U&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 enp0s3</p> <p class="CMDOutput">10.0.2.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0.0.0.0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 255.255.255.255 UH&nbsp;&nbsp;&nbsp; 100&nbsp;&nbsp;&nbsp; 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 0 enp0s3</p> <p class="CMDOutput">=====End Date and Time=====</p> <p class="CMDOutput">Wed 24 Mar 2021 05:06:53 PM UTC</p> <p class="CMDOutput">(END) <b>q</b></p> <p class="CMDOutput">root@labvm:/home/cisco#</p> <h2 style="margin-left:0in;text-indent:0in">Step 3: Analyze different log files and learn their importance.</h2> <p class="BodyTextL25">In addition to capturing information stored in RAM, the system also maintains a variety of logs that you should review after an incident. These log files can also be appended to your <b>report.txt</b> file or stored separately off the system in the event the system needs to be wiped. Logs of particular interest include, but are not limited to, the following:</p> <p class="Bulletlevel1">●<span style="font-size:7.0pt;font-family:Webdings"><span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span></span>auth.log - logs system authorization information</p> <p class="Bulletlevel1">●<span style="font-size:7.0pt;font-family:Webdings"><span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span></span>btmp.log - logs failed login attempts</p> <p class="Bulletlevel1">●<span style="font-size:7.0pt;font-family:Webdings"><span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span></span>wtmp.log - logs who is currently logged into the system</p> <p class="SubStepAlpha">&nbsp;a.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span>Use the <b>cat</b> command to view the auth.log and pipe it to the <b>less</b> command. Press the <b>spacebar</b> to scroll down by page or press <b>Enter</b> to scroll down by a single line. Type <b>q</b> when finished. Your output will be different.</p> <p class="CMD">root@labvm:/home/cisco# <b>cat /var/log/auth.log | less </b></p> <p class="CMDOutput">Mar 18 21:43:57 labvm sshd[375]: Server listening on 0.0.0.0 port 22.</p> <p class="CMDOutput">Mar 18 21:43:57 labvm sshd[375]: Server listening on :: port 22.</p> <p class="CMDOutput">Mar 18 21:43:57 labvm systemd-logind[366]: New seat seat0.</p> <p class="CMDOutput">Mar 18 21:43:57 labvm systemd-logind[366]: Watching system buttons on /dev/input/event0 (Power Button)</p> <p class="CMDOutput">Mar 18 21:43:57 labvm systemd-logind[366]: Watching system buttons on /dev/input/event1 (Sleep Button)</p> <p class="CMDOutput">Mar 18 21:43:57 labvm systemd-logind[366]: Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard)</p> <p class="CMDOutput">Mar 18 21:43:59 labvm sshd[408]: error: kex_exchange_identification: Connection closed by remote host</p> <p class="CMDOutput">Mar 18 21:43:59 labvm sshd[407]: <span style="background: yellow; color: #000;">Accepted password for cisco from 10.0.2.</span>2 port 57067 ssh2</p> <p class="CMDOutput">Mar 18 21:43:59 labvm sshd[407]: pam_unix(sshd:session): session opened for user cisco by (uid=0)</p> <p class="CMDOutput">Mar 18 21:43:59 labvm systemd-logind[366]: <span style="background:yellow !important; color: #000;">New session 1 of user cisco</span>.</p> <p class="CMD">&lt;output omitted&gt;</p> <p class="CMD">(END) <b>q</b></p> <p class="CMD">root@labvm:/home/cisco#</p> <p class="SubStepAlpha">&nbsp;b.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span>The <b>last</b> command shows a listing of last logged in users. Enter the command with the <b>-f</b> option to specify the log file. The <b>btmp</b> log file shows failed login attempts. Your output will be different. </p> <p class="CMD">root@labvm:/home/cisco# <b>last -f /var/log/btmp</b></p> <p class="CMDOutput">UNKNOWN&nbsp; tty6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thu Mar 18 21:47&nbsp;&nbsp;&nbsp; gone - no logout</p> <p class="CMDOutput">UNKNOWN&nbsp; tty4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thu Mar 18 21:47&nbsp;&nbsp;&nbsp; gone - no logout</p> <p class="CMDOutput">UNKNOWN&nbsp; tty3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thu Mar 18 21:47&nbsp;&nbsp;&nbsp; gone - no logout</p> <p class="CMDOutput">cisco&nbsp;&nbsp;&nbsp; tty1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thu Mar 18 21:47&nbsp;&nbsp;&nbsp; gone - no logout</p> <p class="CMDOutput">cisco&nbsp;&nbsp;&nbsp; tty1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Thu Mar 18 21:47 - 21:47&nbsp; (00:00)</p> <p class="CMDOutput">btmp begins Thu Mar 18 21:47:05 2021</p> <p class="CMD">root@labvm:/home/cisco#</p> <p class="SubStepAlpha">&nbsp;c.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span>Enter the <b>last</b> command again specifying the <b>wtmp</b> file to show who is currently connected to the system. Your output will be different. </p> <p class="CMD">root@labvm:/home/cisco# <b>last -f /var/log/wtmp</b></p> <p class="CMDOutput">cisco&nbsp;&nbsp;&nbsp; tty7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; :0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Tue Mar 23 19:38&nbsp;&nbsp;&nbsp; gone - no logout</p> <p class="CMDOutput">reboot&nbsp;&nbsp; system boot&nbsp; 5.4.0-67-generic Tue Mar 23 14:38&nbsp;&nbsp; still running</p> <p class="CMDOutput">cisco&nbsp;&nbsp;&nbsp; tty2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thu Mar 18 21:47 - 21:47&nbsp; (00:00)</p> <p class="CMDOutput">reboot&nbsp;&nbsp; system boot&nbsp; 5.4.0-67-generic Thu Mar 18 21:43 - 22:02&nbsp; (00:18)</p> <p class="CMDOutput">wtmp begins Thu Mar 18 21:43:54 2021</p> <p class="SubStepAlpha">&nbsp;d.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span>Enter the <b>exit</b> command to switch back to the cisco user. </p> <p class="CMD">root@labvm:/home/cisco# <b>exit</b></p> <p class="CMD">cisco@labvm:~$</p></div>
+                      </div>
+                    </div>
+                  <!--?lit$391381205$-->
+                  <!--?lit$391381205$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="5fbeeef7-c8dd-41f5-a25c-6bd262af747a" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 50%;"><!---->
+                
+                <div data-socialgoodpulse-id="5fbeeef7-c8dd-41f5-a25c-6bd262af747a" class="5fbeeef7-c8dd-41f5-a25c-6bd262af747a block remove-padding-top remove-padding-bottom ">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="5fbeeef7-c8dd-41f5-a25c-6bd262af747a" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$391381205$-->
+                  <!--?lit$391381205$-->
+                  <!--?lit$391381205$-->
+                  <!--?lit$391381205$-->
+                  <!--?lit$391381205$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$391381205$--><!----><text-view modelid="2763a2e8-4687-458e-9ecb-d8533da4567e" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="2763a2e8-4687-458e-9ecb-d8533da4567e" class="component text 2763a2e8-4687-458e-9ecb-d8533da4567e  is-full   ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$391381205$-->
+                  <!--?lit$391381205$-->
+                  <!--?lit$391381205$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$391381205$--><span> <hr><span style="padding-right:5px;float:left;font-family:arial;font-size:12px;">© 2017 - 2022 Cisco and/or its affiliates. All rights reserved. Cisco Public</span> </span></div>
+                      </div>
+                    </div>
+                  <!--?lit$391381205$-->
+                  <!--?lit$391381205$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$391381205$-->
+                    </div>
+                </div>
+            </div>
+        <script></script></body>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            .querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            .querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      var event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        .querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        .querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        .querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      .querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </html>
