@@ -1,0 +1,2424 @@
+<!DOCTYPE html><html><head>
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+      .opentabletextbox-inner .opentabletextBox__widget .openTableTextBox__answerText.answergray {
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox{
+        background-color: transparent;
+      }
+      .openTextBox__inner .openTextBox__widget .answergray.is-graphic-in-openTextBox img{
+        margin-block: 1rem;
+        margin-left: initial;
+      }
+      .component__content .component__body-inner .pageTracer-h4-title-hide {
+        margin-top: 0px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        font-size: 0px;
+        color: rgb(var(--neutral-2));
+        font-weight: normal;
+      }
+      .table-inner .table__widget table tr.TableHeading th, .table-inner .table__widget table tr.TableHeading td, .table-inner .table__widget table tr td.TableHeading, .opentabletextbox-table thead tr.TableHeading th, .opentabletextbox-table tbody tr.TableHeading td, .opentabletextbox-table tbody tr td.TableHeading {
+        background-color: #d6d8dc;
+        text-align: center;
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .CMD, .component__content .component__body-inner .CMDOutput, .component__content .component__body-inner .CMDOutput__table{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        margin-inline-start: 30px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      [dir="rtl"] .component__content .component__body-inner .CMDOutput__table span {
+        direction: ltr;
+        display: inline-block;
+      }
+      .openTextBox__inner .openTextBox__widget .CMD, .openTextBox__inner .openTextBox__widget .CMDOutput{
+        margin-top: 4px;
+        margin-inline-end: 0px;
+        margin-bottom: 4px;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .openTextBox__inner .openTextBox__widget .DnTbold, .openTextBox__inner .openTextBox__widget .BodyTextL25Bold, .component__content .component__body-inner .BodyTextL25Bold, .component__content .component__body-inner .DnTbold, .table-inner .table__widget table tr .DnTbold {
+        font-weight: bold;
+      }
+      .component__content .component__body-inner .SubStepNum {
+        text-indent: -25.5px;
+        margin-inline-start: 50px;
+      }
+      .component__content .component__body-inner .BodyTextL50 {
+        margin-inline-start: 30px;
+      }
+      .component__content .component__body-inner .Bulletlevel1 {
+        text-indent: -19px;
+        margin-inline-start: 48px;
+      }
+      .component__content .component__body-inner .Bulletlevel2 {
+          text-indent: -19px;
+          margin-inline-start: 72px;
+      }
+      .openTextBox__inner .openTextBox__widget .ReflectionQ, .component__content .component__body-inner .SubStepAlpha {
+          text-indent: -25.5px;
+          margin-inline-start: 30px;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article c246a1a0-c3b1-4e1b-a801-ab48cabc0a75 remove-padding-top remove-padding-bottom is-complete ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$232975901$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+              <div class="article__header-inner ">
+                  
+                    <!--?lit$232975901$--> <div class=" article__title ">
+                      <!--?lit$232975901$--><heading-view aria-hidden="true" id="c246a1a0-c3b1-4e1b-a801-ab48cabc0a75-heading-view" headingtitle="Lab - Recommend Disaster Recovery Measures" modelid="c246a1a0-c3b1-4e1b-a801-ab48cabc0a75" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="js-heading is-complete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$232975901$-->Complete &nbsp;<!--?lit$232975901$-->Lab - Recommend Disaster Recovery Measures</span>
+        </div>
+      </div>
+    </heading-view>
+                        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+                        <span class="accessibility-completion-indicator"><!--?lit$232975901$-->Complete </span>
+                        <!--?lit$232975901$-->Lab - Recommend Disaster Recovery Measures</div>
+                      </div>
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$232975901$--><!---->
+                                    <block-view modelid="c4ba9fcb-51ea-4d8b-89c5-d09a26921648" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="c4ba9fcb-51ea-4d8b-89c5-d09a26921648" class="c4ba9fcb-51ea-4d8b-89c5-d09a26921648 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="c4ba9fcb-51ea-4d8b-89c5-d09a26921648" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><text-view modelid="76768885-ee6c-47ff-a675-618f233be21e" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="76768885-ee6c-47ff-a675-618f233be21e" class="component text 76768885-ee6c-47ff-a675-618f233be21e  is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$232975901$--><h2>Objectives</h2> <p class="BodyTextL25Bold">Part 1: Natural Disaster</p> <p class="BodyTextL25Bold">Part 2: DDoS Attack</p> <p class="BodyTextL25Bold">Part 3: Loss of Data</p> <h2>Background / Scenario</h2> <p class="BodyTextL25">Every organization needs to be prepared for a disaster. The ability to recover from a disaster can determine the survival of the business. A disaster can be a hurricane or typhoon, hardware failure, loss of data, or a devastating cyber attack.</p> <p class="BodyTextL25">A disaster recovery plan will include policies and procedures that the organization follows when IT services are disrupted.</p> <p class="BodyTextL25">In the plan, you should take into account IT-related people, services and equipment, and the physical locations of the business. You should also keep in mind of recovery point objectives (RPO) and recovery time objectives (RTO).</p> <p class="BodyTextL25">In this lab, you will recommend disaster recovery measures for a natural disaster, equipment failure in the datacenter, a DDoS attack, or loss of data for a tutoring service.</p> <p class="BodyTextL25">In this business, you have students from different geographical locations who require tutoring for different subjects, such as mathematics and language. The students have access to an online curriculum that provides them with supplemental materials based on their needs. The students can also sign up for personal assistance from instructors for scheduled small group or one-to-one tutoring services. The business has a few physical locations that potential customers can visit and use the tutoring services in-person. The business delivers services to its customers from a neighboring cloud data center. The data center delivers instructional content, student records, registration for services, and real-time video conferencing for direct instruction. Other routing business practices, such as backups of onsite business servers is handled in the data center.</p> <h2>Required Resources</h2> <p class="Bulletlevel1"><span style="font-size:7.0pt;font-family:Webdings">=</span><span>&nbsp;&nbsp;</span>Device with internet access</p> <h2>Instructions</h2> <h2>Part 1: Natural Disaster</h2> <p class="BodyTextL25">A hurricane, or typhoon, has struck your community and caused damage near a data center. The network infrastructure in the area has also suffered damage.</p> <p class="BodyTextL25">The damage near the data center has caused a network outage and the servers in the data center are no longer accessible remotely. Because of the extensive damage in the community, it may take a few days before a thorough damage assessment can be completed. You can assume that there is no access to this data center for at least a week.</p> <h3>Step 1: Identify the potential risks.</h3> <h4 class="pageTracer-h4-title-hide">Questions:</h4> <p class="BodyTextL25">Answer the following questions:</p></div>
+                      </div>
+                    </div>
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="5cd4afaf-a4a7-4274-b133-4e342fd441c1" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="5cd4afaf-a4a7-4274-b133-4e342fd441c1" class="5cd4afaf-a4a7-4274-b133-4e342fd441c1 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="5cd4afaf-a4a7-4274-b133-4e342fd441c1" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><opentextbox-view modelid="4ae6bde5-ab3c-4e3f-a5b5-511617c5688d" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="4ae6bde5-ab3c-4e3f-a5b5-511617c5688d" class="component opentextbox 4ae6bde5-ab3c-4e3f-a5b5-511617c5688d  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="4ae6bde5-ab3c-4e3f-a5b5-511617c5688d" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$232975901$--> <div class="openTextBox__preText"><!--?lit$232975901$--><p class="BodyTextL25">Can the business operate without access to this data center? Explain.</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$232975901$--><!--?lit$232975901$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  show">
+                        <!--?lit$232975901$-->
+                      <!--?lit$232975901$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span><span style="border:none">Answers will vary. The business will have limited functions at the physical locations only. The business requires access to the servers within the data center remotely. Without them, the business cannot function because the customers cannot access the tutoring services and the online content. Furthermore, the instructors cannot provide tutoring and cannot access the student information remotely.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer hide"><!--?lit$232975901$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer show"><!--?lit$232975901$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$232975901$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="dac7109e-530c-4c49-a1f6-e750fb79aa3d" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="dac7109e-530c-4c49-a1f6-e750fb79aa3d" class="dac7109e-530c-4c49-a1f6-e750fb79aa3d block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="dac7109e-530c-4c49-a1f6-e750fb79aa3d" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><opentextbox-view modelid="913dbeb2-792b-4346-874f-48d6d2905098" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="913dbeb2-792b-4346-874f-48d6d2905098" class="component opentextbox 913dbeb2-792b-4346-874f-48d6d2905098  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="913dbeb2-792b-4346-874f-48d6d2905098" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$232975901$--> <div class="openTextBox__preText"><!--?lit$232975901$--><p class="BodyTextL25">Can the students access their online materials? Explain.</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$232975901$--><!--?lit$232975901$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  show">
+                        <!--?lit$232975901$-->
+                      <!--?lit$232975901$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span><span style="border:none">Answers will vary. The students will not be able to access the online materials if all the materials are located in the same inaccessible data center.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer hide"><!--?lit$232975901$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer show"><!--?lit$232975901$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$232975901$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="10e7393e-5ffe-4879-93df-47b8bc4a4528" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="10e7393e-5ffe-4879-93df-47b8bc4a4528" class="10e7393e-5ffe-4879-93df-47b8bc4a4528 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="10e7393e-5ffe-4879-93df-47b8bc4a4528" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><opentextbox-view modelid="aedbd25e-f47c-46ad-a501-9d0d95cb11fe" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="aedbd25e-f47c-46ad-a501-9d0d95cb11fe" class="component opentextbox aedbd25e-f47c-46ad-a501-9d0d95cb11fe  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="aedbd25e-f47c-46ad-a501-9d0d95cb11fe" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$232975901$--> <div class="openTextBox__preText"><!--?lit$232975901$--><p class="BodyTextL25">Are there other ways that instructors can provide the tutoring services? Explain.</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$232975901$--><!--?lit$232975901$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  show">
+                        <!--?lit$232975901$-->
+                      <!--?lit$232975901$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span><span style="border:none">Answers will vary. The instructors can still provide services if they can connect with students via meeting applications that are provided by other online providers.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer hide"><!--?lit$232975901$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer show"><!--?lit$232975901$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$232975901$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="398fc389-385a-4d20-9248-bdfe671d4331" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="398fc389-385a-4d20-9248-bdfe671d4331" class="398fc389-385a-4d20-9248-bdfe671d4331 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="398fc389-385a-4d20-9248-bdfe671d4331" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><opentextbox-view modelid="d6462c99-ac68-42d3-b30b-d8b1ddcb7655" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="d6462c99-ac68-42d3-b30b-d8b1ddcb7655" class="component opentextbox d6462c99-ac68-42d3-b30b-d8b1ddcb7655  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="d6462c99-ac68-42d3-b30b-d8b1ddcb7655" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$232975901$--> <div class="openTextBox__preText"><!--?lit$232975901$--><p class="BodyTextL25">Can new users sign up for the tutoring services? Explain.</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$232975901$--><!--?lit$232975901$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  show">
+                        <!--?lit$232975901$-->
+                      <!--?lit$232975901$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span><span style="border:none">Answers will vary. New users cannot use the service if they cannot access the business’s online user database that is housed in the inaccessible data center.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer hide"><!--?lit$232975901$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer show"><!--?lit$232975901$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$232975901$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="df1d6605-0aff-43c2-a91a-de032def8728" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="df1d6605-0aff-43c2-a91a-de032def8728" class="df1d6605-0aff-43c2-a91a-de032def8728 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="df1d6605-0aff-43c2-a91a-de032def8728" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><opentextbox-view modelid="08d68cca-aa05-4ccf-8326-d8f2d4ea6b9a" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="08d68cca-aa05-4ccf-8326-d8f2d4ea6b9a" class="component opentextbox 08d68cca-aa05-4ccf-8326-d8f2d4ea6b9a  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="08d68cca-aa05-4ccf-8326-d8f2d4ea6b9a" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$232975901$--> <div class="openTextBox__preText"><!--?lit$232975901$--><p class="BodyTextL25">Can the employees access internal company information during the recovery?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$232975901$--><!--?lit$232975901$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  show">
+                        <!--?lit$232975901$-->
+                      <!--?lit$232975901$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span><span style="border:none">Answers will vary. The employees cannot access internal information if the internal servers are also located at the same data center.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer hide"><!--?lit$232975901$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer show"><!--?lit$232975901$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$232975901$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="03276741-7e0a-4ef2-ac3a-7dc19c511a25" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="03276741-7e0a-4ef2-ac3a-7dc19c511a25" class="03276741-7e0a-4ef2-ac3a-7dc19c511a25 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="03276741-7e0a-4ef2-ac3a-7dc19c511a25" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><text-view modelid="e929ceee-756a-4ab2-b528-93d56769d9fa" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="e929ceee-756a-4ab2-b528-93d56769d9fa" class="component text e929ceee-756a-4ab2-b528-93d56769d9fa  is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$232975901$--><h3>Step 2: Recommend a disaster recovery plan.</h3></div>
+                      </div>
+                    </div>
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="77a856a9-1383-49ab-8bae-1d4830f4cc2e" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="77a856a9-1383-49ab-8bae-1d4830f4cc2e" class="77a856a9-1383-49ab-8bae-1d4830f4cc2e block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="77a856a9-1383-49ab-8bae-1d4830f4cc2e" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><opentextbox-view modelid="9f82c7c0-d13b-4ca3-a467-1acb12c49ee2" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="9f82c7c0-d13b-4ca3-a467-1acb12c49ee2" class="component opentextbox 9f82c7c0-d13b-4ca3-a467-1acb12c49ee2  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="9f82c7c0-d13b-4ca3-a467-1acb12c49ee2" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$232975901$--> <div class="openTextBox__preText"><!--?lit$232975901$--><p class="BodyTextL25">Based on your answers in the previous step, list your recommendations below:</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$232975901$--><!--?lit$232975901$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  show">
+                        <!--?lit$232975901$-->
+                      <!--?lit$232975901$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span><span style="border:none">Answers will vary. This business cannot function successfully without access its user database and online curriculum. A backup location should house an up-to-date backup copy of the essential data. In the event that the current data center is inaccessible, a backup location should come online and provide the essential services. </span></span></span></p><p></p><ul><li> Current backup copy of the user database and online curriculum </li><li> Secondary physical location with a different ISP </li><li> Backup location should be available in a short period of time during recovery </li><li> Internal server access for employees for updated information during recovery </li><li> Each employee should have a local copy of disaster recovery plan</li></ul><p></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer hide"><!--?lit$232975901$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer show"><!--?lit$232975901$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$232975901$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="16e36871-0006-4f1d-9e6e-2c2ea29e8967" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="16e36871-0006-4f1d-9e6e-2c2ea29e8967" class="16e36871-0006-4f1d-9e6e-2c2ea29e8967 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="16e36871-0006-4f1d-9e6e-2c2ea29e8967" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><text-view modelid="b449e5f1-2251-49f5-9dc6-40aa63ed8c2f" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="b449e5f1-2251-49f5-9dc6-40aa63ed8c2f" class="component text b449e5f1-2251-49f5-9dc6-40aa63ed8c2f  is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$232975901$--><h2>Part 2: DDoS Attack</h2> <p class="BodyTextL25">A few users have reported that they cannot log into their accounts and access the online curriculum. Upon further investigation, it appears that the web server is overwhelmed with requests at a time when normally there is little traffic. It appears that the server is undergoing a denial of service attack.</p> <h3>Step 1: Identify potential problems.</h3> <h4 class="pageTracer-h4-title-hide">questions:</h4> <p class="BodyTextL25">Answer the following questions:</p></div>
+                      </div>
+                    </div>
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="38893e34-8627-4de7-976f-6ece9d1b5fbf" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="38893e34-8627-4de7-976f-6ece9d1b5fbf" class="38893e34-8627-4de7-976f-6ece9d1b5fbf block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="38893e34-8627-4de7-976f-6ece9d1b5fbf" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><opentextbox-view modelid="77f0244d-aa48-4e8d-ba02-78fd4e5e0f8b" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="77f0244d-aa48-4e8d-ba02-78fd4e5e0f8b" class="component opentextbox 77f0244d-aa48-4e8d-ba02-78fd4e5e0f8b  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="77f0244d-aa48-4e8d-ba02-78fd4e5e0f8b" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$232975901$--> <div class="openTextBox__preText"><!--?lit$232975901$--><p class="BodyTextL25">Can the business operate without access to data center? Explain.</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$232975901$--><!--?lit$232975901$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  show">
+                        <!--?lit$232975901$-->
+                      <!--?lit$232975901$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span><span style="border:none">Answers will vary. The business requires access to the servers within the data center remotely. Without access, the business cannot function because customers cannot access the tutoring services and the online content. In addition, instructors cannot provide tutoring or access student information.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer hide"><!--?lit$232975901$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer show"><!--?lit$232975901$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$232975901$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="9db627ca-e4c0-4736-b70f-b5fceca63cb6" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="9db627ca-e4c0-4736-b70f-b5fceca63cb6" class="9db627ca-e4c0-4736-b70f-b5fceca63cb6 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="9db627ca-e4c0-4736-b70f-b5fceca63cb6" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><opentextbox-view modelid="99f83506-c756-4544-8b40-9b4e77e2712f" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="99f83506-c756-4544-8b40-9b4e77e2712f" class="component opentextbox 99f83506-c756-4544-8b40-9b4e77e2712f  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="99f83506-c756-4544-8b40-9b4e77e2712f" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$232975901$--> <div class="openTextBox__preText"><!--?lit$232975901$--><p class="BodyTextL25">Can the business still function without access to the data center? Explain.</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$232975901$--><!--?lit$232975901$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  show">
+                        <!--?lit$232975901$-->
+                      <!--?lit$232975901$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span><span style="border:none">Answers will vary. The business has limited function if only the staffed physical locations can provide the tutoring services.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer hide"><!--?lit$232975901$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer show"><!--?lit$232975901$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$232975901$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="344a8b94-ca70-47a8-b34c-393d837f7715" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="344a8b94-ca70-47a8-b34c-393d837f7715" class="344a8b94-ca70-47a8-b34c-393d837f7715 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="344a8b94-ca70-47a8-b34c-393d837f7715" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><opentextbox-view modelid="62528dff-509f-4db3-a942-6e1e035519bf" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="62528dff-509f-4db3-a942-6e1e035519bf" class="component opentextbox 62528dff-509f-4db3-a942-6e1e035519bf  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="62528dff-509f-4db3-a942-6e1e035519bf" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$232975901$--> <div class="openTextBox__preText"><!--?lit$232975901$--><p class="BodyTextL25">Can the students access their online materials? Explain.</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$232975901$--><!--?lit$232975901$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  show">
+                        <!--?lit$232975901$-->
+                      <!--?lit$232975901$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span><span style="border:none">Answers will vary. The students cannot access their online materials because access to the servers at the data center is not available.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer hide"><!--?lit$232975901$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer show"><!--?lit$232975901$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$232975901$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="269cb59d-fe1e-4ee6-b329-9276db6cc083" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="269cb59d-fe1e-4ee6-b329-9276db6cc083" class="269cb59d-fe1e-4ee6-b329-9276db6cc083 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="269cb59d-fe1e-4ee6-b329-9276db6cc083" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><opentextbox-view modelid="26d2e9f0-84d2-47da-8f8b-ef54d26e9d6f" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="26d2e9f0-84d2-47da-8f8b-ef54d26e9d6f" class="component opentextbox 26d2e9f0-84d2-47da-8f8b-ef54d26e9d6f  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="26d2e9f0-84d2-47da-8f8b-ef54d26e9d6f" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$232975901$--> <div class="openTextBox__preText"><!--?lit$232975901$--><p class="BodyTextL25">Can the instructors still provide the tutoring services? Explain.</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$232975901$--><!--?lit$232975901$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  show">
+                        <!--?lit$232975901$-->
+                      <!--?lit$232975901$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span><span style="border:none">Answers will vary. The instructors can still provide services if they can connect with their students via meeting applications that are provided by other online providers.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer hide"><!--?lit$232975901$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer show"><!--?lit$232975901$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$232975901$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="2e94687e-4c2c-4215-8b38-9e96390c1f98" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="2e94687e-4c2c-4215-8b38-9e96390c1f98" class="2e94687e-4c2c-4215-8b38-9e96390c1f98 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="2e94687e-4c2c-4215-8b38-9e96390c1f98" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><opentextbox-view modelid="d8370079-1b16-4666-9c06-3206ea8ae35a" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="d8370079-1b16-4666-9c06-3206ea8ae35a" class="component opentextbox d8370079-1b16-4666-9c06-3206ea8ae35a  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="d8370079-1b16-4666-9c06-3206ea8ae35a" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$232975901$--> <div class="openTextBox__preText"><!--?lit$232975901$--><p class="BodyTextL25">Can new users sign up for the tutoring services? Explain.</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$232975901$--><!--?lit$232975901$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  show">
+                        <!--?lit$232975901$-->
+                      <!--?lit$232975901$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span><span style="border:none">Answers will vary. New users cannot use the service if they cannot access the business’s online user database or curriculum.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer hide"><!--?lit$232975901$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer show"><!--?lit$232975901$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$232975901$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="757b349a-78a7-406e-90e7-728ec5300192" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="757b349a-78a7-406e-90e7-728ec5300192" class="757b349a-78a7-406e-90e7-728ec5300192 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="757b349a-78a7-406e-90e7-728ec5300192" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><opentextbox-view modelid="244774bb-9c47-4420-8d1a-584478e88434" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="244774bb-9c47-4420-8d1a-584478e88434" class="component opentextbox 244774bb-9c47-4420-8d1a-584478e88434  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="244774bb-9c47-4420-8d1a-584478e88434" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$232975901$--> <div class="openTextBox__preText"><!--?lit$232975901$--><p class="BodyTextL25">Can the employees access internal company information during the recovery?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$232975901$--><!--?lit$232975901$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  show">
+                        <!--?lit$232975901$-->
+                      <!--?lit$232975901$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span><span style="border:none">Answers will vary. The employees have no access to internal information during recovery.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer hide"><!--?lit$232975901$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer show"><!--?lit$232975901$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$232975901$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="259c23b1-9e7e-47a8-b555-cca8a8b52a4a" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="259c23b1-9e7e-47a8-b555-cca8a8b52a4a" class="259c23b1-9e7e-47a8-b555-cca8a8b52a4a block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="259c23b1-9e7e-47a8-b555-cca8a8b52a4a" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><text-view modelid="dff3a6c0-001a-4e3c-b3ea-4cf5b9ea09b0" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="dff3a6c0-001a-4e3c-b3ea-4cf5b9ea09b0" class="component text dff3a6c0-001a-4e3c-b3ea-4cf5b9ea09b0  is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$232975901$--><h3>Step 2: Recommend a recovery plan.</h3></div>
+                      </div>
+                    </div>
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="d5beacaf-0c14-4715-9e2f-78e77ecbc78c" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="d5beacaf-0c14-4715-9e2f-78e77ecbc78c" class="d5beacaf-0c14-4715-9e2f-78e77ecbc78c block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="d5beacaf-0c14-4715-9e2f-78e77ecbc78c" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><opentextbox-view modelid="3e3b86cd-26f6-4db3-a867-69a48b34b5ab" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="3e3b86cd-26f6-4db3-a867-69a48b34b5ab" class="component opentextbox 3e3b86cd-26f6-4db3-a867-69a48b34b5ab  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="3e3b86cd-26f6-4db3-a867-69a48b34b5ab" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$232975901$--> <div class="openTextBox__preText"><!--?lit$232975901$--><p class="BodyTextL25">Based on your answers in the previous step, list your recommendations below:</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$232975901$--><!--?lit$232975901$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  show">
+                        <!--?lit$232975901$-->
+                      <!--?lit$232975901$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span><span style="border:none">Answers will vary. This business cannot function without access to its user database and online curriculum. In the event of an attack: </span></span></span></p><p></p><ul><li> Current backup copy of the user database, online curriculum at a different physical location </li><li> Backup copies of the servers that can be deployed as needed </li><li> Each employee should have a local copy of disaster recovery plan </li><li> Identification and testing of alternate communicate services to those housed in the data center</li></ul><p></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer hide"><!--?lit$232975901$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer show"><!--?lit$232975901$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$232975901$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="a9d3d312-635c-49e3-aa38-01381a4bedf8" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="a9d3d312-635c-49e3-aa38-01381a4bedf8" class="a9d3d312-635c-49e3-aa38-01381a4bedf8 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="a9d3d312-635c-49e3-aa38-01381a4bedf8" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><text-view modelid="70175d55-07ef-49ec-a466-4e8c401a8823" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="70175d55-07ef-49ec-a466-4e8c401a8823" class="component text 70175d55-07ef-49ec-a466-4e8c401a8823  is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$232975901$--><h2>Part 3: Loss of Data</h2> <p class="BodyTextL25">Users have reported that they are unable to login to their accounts, and they were unable to reset their credentials. Other users have reported that they were able to log in, but their recent progress in their classes is missing. After further investigation, it appears that the data loss was caused by human error.</p> <h3>Step 1: Identify potential problems.</h3> <h4 class="pageTracer-h4-title-hide">questions:</h4> <p class="BodyTextL25">Answer the following questions:</p></div>
+                      </div>
+                    </div>
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="df4eb6b0-b138-4204-9466-9485ef87d67c" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="df4eb6b0-b138-4204-9466-9485ef87d67c" class="df4eb6b0-b138-4204-9466-9485ef87d67c block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="df4eb6b0-b138-4204-9466-9485ef87d67c" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><opentextbox-view modelid="4a12d802-4ebe-4909-87fc-569bbc95cbd8" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="4a12d802-4ebe-4909-87fc-569bbc95cbd8" class="component opentextbox 4a12d802-4ebe-4909-87fc-569bbc95cbd8  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="4a12d802-4ebe-4909-87fc-569bbc95cbd8" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$232975901$--> <div class="openTextBox__preText"><!--?lit$232975901$--><p class="BodyTextL25">Can the business operate with the data loss? Explain.</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$232975901$--><!--?lit$232975901$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  show">
+                        <!--?lit$232975901$-->
+                      <!--?lit$232975901$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span><span style="border:none">Answers will vary. It depends on the extent of data loss. The business should be able to continue with possible limitations.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer hide"><!--?lit$232975901$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer show"><!--?lit$232975901$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$232975901$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="fb1566b8-c473-4baa-b88f-6eab7b1e2590" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="fb1566b8-c473-4baa-b88f-6eab7b1e2590" class="fb1566b8-c473-4baa-b88f-6eab7b1e2590 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="fb1566b8-c473-4baa-b88f-6eab7b1e2590" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><opentextbox-view modelid="0ab079b3-8bd5-47f8-8fa6-aeb68446288d" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="0ab079b3-8bd5-47f8-8fa6-aeb68446288d" class="component opentextbox 0ab079b3-8bd5-47f8-8fa6-aeb68446288d  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="0ab079b3-8bd5-47f8-8fa6-aeb68446288d" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$232975901$--> <div class="openTextBox__preText"><!--?lit$232975901$--><p class="BodyTextL25">Can the students access their online materials? Explain.</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$232975901$--><!--?lit$232975901$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  show">
+                        <!--?lit$232975901$-->
+                      <!--?lit$232975901$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span><span style="border:none">Answers will vary. The students can only access their online materials if their online materials are not part of the lost data and their accounts can be restored</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer hide"><!--?lit$232975901$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer show"><!--?lit$232975901$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$232975901$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="48276844-6163-4bca-8073-8cb6ec77f74a" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="48276844-6163-4bca-8073-8cb6ec77f74a" class="48276844-6163-4bca-8073-8cb6ec77f74a block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="48276844-6163-4bca-8073-8cb6ec77f74a" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><opentextbox-view modelid="1c601c19-5908-4192-bbaf-eda1e2423b54" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="1c601c19-5908-4192-bbaf-eda1e2423b54" class="component opentextbox 1c601c19-5908-4192-bbaf-eda1e2423b54  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="1c601c19-5908-4192-bbaf-eda1e2423b54" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$232975901$--> <div class="openTextBox__preText"><!--?lit$232975901$--><p class="BodyTextL25">Can the instructors still provide the tutoring services? Explain.</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$232975901$--><!--?lit$232975901$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  show">
+                        <!--?lit$232975901$-->
+                      <!--?lit$232975901$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span><span style="border:none">Answers will vary. The instructors can only access their online materials if their online materials are not part of the lost data.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer hide"><!--?lit$232975901$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer show"><!--?lit$232975901$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$232975901$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="6196e94c-580d-4aa0-95a3-91e781edf727" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="6196e94c-580d-4aa0-95a3-91e781edf727" class="6196e94c-580d-4aa0-95a3-91e781edf727 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="6196e94c-580d-4aa0-95a3-91e781edf727" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><opentextbox-view modelid="7eaeac71-8030-4708-a158-b7c45d17fc25" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="7eaeac71-8030-4708-a158-b7c45d17fc25" class="component opentextbox 7eaeac71-8030-4708-a158-b7c45d17fc25  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="7eaeac71-8030-4708-a158-b7c45d17fc25" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$232975901$--> <div class="openTextBox__preText"><!--?lit$232975901$--><p class="BodyTextL25">Can new users sign up for the tutoring services? Explain.</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$232975901$--><!--?lit$232975901$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  show">
+                        <!--?lit$232975901$-->
+                      <!--?lit$232975901$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span><span style="border:none">Answers will vary. New users can sign up if they are not accessing the business’s online user database or curriculum that is part of data loss.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer hide"><!--?lit$232975901$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer show"><!--?lit$232975901$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$232975901$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="7d16c571-9f92-462e-bafa-39aefcc55b27" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="7d16c571-9f92-462e-bafa-39aefcc55b27" class="7d16c571-9f92-462e-bafa-39aefcc55b27 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="7d16c571-9f92-462e-bafa-39aefcc55b27" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><opentextbox-view modelid="701afc84-8a92-4e74-a408-f68088e601b5" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="701afc84-8a92-4e74-a408-f68088e601b5" class="component opentextbox 701afc84-8a92-4e74-a408-f68088e601b5  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="701afc84-8a92-4e74-a408-f68088e601b5" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$232975901$--> <div class="openTextBox__preText"><!--?lit$232975901$--><p class="BodyTextL25">Can the employees access internal company information during the recovery?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$232975901$--><!--?lit$232975901$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  show">
+                        <!--?lit$232975901$-->
+                      <!--?lit$232975901$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span><span style="border:none">Answers will vary. The employees have access to internal information during recovery if it is not part of the data loss.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer hide"><!--?lit$232975901$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer show"><!--?lit$232975901$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$232975901$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="184a5268-5398-40cb-a951-3adc420e1f7c" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="184a5268-5398-40cb-a951-3adc420e1f7c" class="184a5268-5398-40cb-a951-3adc420e1f7c block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="184a5268-5398-40cb-a951-3adc420e1f7c" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><text-view modelid="187aecc8-d095-4612-9647-0de63ac184b7" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="187aecc8-d095-4612-9647-0de63ac184b7" class="component text 187aecc8-d095-4612-9647-0de63ac184b7  is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$232975901$--><h3>Step 2: Recommend a recovery plan.</h3></div>
+                      </div>
+                    </div>
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="c1505b29-af16-49c0-ac3f-56d05dff5274" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="c1505b29-af16-49c0-ac3f-56d05dff5274" class="c1505b29-af16-49c0-ac3f-56d05dff5274 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="c1505b29-af16-49c0-ac3f-56d05dff5274" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><opentextbox-view modelid="327589d5-6b98-4501-8315-b98b4c6d096d" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="327589d5-6b98-4501-8315-b98b4c6d096d" class="component opentextbox 327589d5-6b98-4501-8315-b98b4c6d096d  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="327589d5-6b98-4501-8315-b98b4c6d096d" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$232975901$--> <div class="openTextBox__preText"><!--?lit$232975901$--><p class="BodyTextL25">Based on your answers in the previous step, list your recommendations below:</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$232975901$--><!--?lit$232975901$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  show">
+                        <!--?lit$232975901$-->
+                      <!--?lit$232975901$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span><span style="border:none">Answers will vary. The business should have daily backups of all the essential data, such as the user database. Multiple backups of the data at different time increments may be necessary because the undamaged data could be in an older backup only. </span></span></span></p><p>For example, the data was damaged by the insertion of malicious code by an attacker 2 days ago. The company keeps full daily backups for seven days. The damaged data can be recovered from the backup that this is 3 days old. However, the trade-off for using an older backup is losing the data from the last two days. On the other hand, if the damaged data can be identified and recovered from the backups, the data loss can be minimized if only the damaged data is incrementally replaced from the backups. </p><p>Furthermore, software vulnerability and malicious attacks can also cause data loss in addition to human errors and sabotage. </p><p></p><ul><li> Retain multiple copies of the backups taken at different time intervals </li><li> Anti-malware software </li><li> Keep software up-to-date </li><li> Each employee should have a local copy of disaster recovery plan </li><li> Rapid data restore capability on redundant equipment</li></ul><p></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer hide"><!--?lit$232975901$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer show"><!--?lit$232975901$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$232975901$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="afbe3ea1-87c5-4068-9bec-1141db23ee8e" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="afbe3ea1-87c5-4068-9bec-1141db23ee8e" class="afbe3ea1-87c5-4068-9bec-1141db23ee8e block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="afbe3ea1-87c5-4068-9bec-1141db23ee8e" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><text-view modelid="4c8b8308-ab5d-402c-80cc-9a3d5f9921c8" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="4c8b8308-ab5d-402c-80cc-9a3d5f9921c8" class="component text 4c8b8308-ab5d-402c-80cc-9a3d5f9921c8  is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$232975901$--><h2>Reflection</h2></div>
+                      </div>
+                    </div>
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="41707166-92e9-4d30-ad1c-6bab9a5bc456" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="41707166-92e9-4d30-ad1c-6bab9a5bc456" class="41707166-92e9-4d30-ad1c-6bab9a5bc456 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="41707166-92e9-4d30-ad1c-6bab9a5bc456" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><opentextbox-view modelid="9e2fd438-253c-4c63-95b9-3e762b8d3206" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="9e2fd438-253c-4c63-95b9-3e762b8d3206" class="component opentextbox 9e2fd438-253c-4c63-95b9-3e762b8d3206  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="9e2fd438-253c-4c63-95b9-3e762b8d3206" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$232975901$--> <div class="openTextBox__preText"><!--?lit$232975901$--><p class="ReflectionQ">1.<span>&nbsp;&nbsp;</span>These cases indicate disaster recovery requirements that are common to many businesses that use offsite datacenters. What should be included disaster recovery plans for many of these business?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$232975901$--><!--?lit$232975901$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  show">
+                        <!--?lit$232975901$-->
+                      <!--?lit$232975901$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span><span style="border:none">One thing that is very important is that essential data operations be housed offsite in a data center. Because that data center could become unreachable, server should mirror data between two or more data centers. In this way, virtual servers can be created at the backup data center so that business operations can be restored as quickly as possible. Of additional importance, because the most current backup may not include damaged or last data that backups be archived for some period of time, so that the last good backup can be restored.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer hide"><!--?lit$232975901$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer show"><!--?lit$232975901$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$232975901$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="5914f700-845d-496c-903a-be44f938adba" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 3.57143%;"><!---->
+                
+                <div data-socialgoodpulse-id="5914f700-845d-496c-903a-be44f938adba" class="5914f700-845d-496c-903a-be44f938adba block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="5914f700-845d-496c-903a-be44f938adba" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$232975901$--><!----><opentextbox-view modelid="23d50d32-cbb2-4cff-842e-aa10da95f153" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="component">
+          <div class="component__inner openTextBox__inner">
+            <div data-socialgoodpulse-id="23d50d32-cbb2-4cff-842e-aa10da95f153" class="component opentextbox 23d50d32-cbb2-4cff-842e-aa10da95f153  is-undefined is-complete  ">
+              <div class="component__header-container">
+                <div data-socialgoodpulse-id="23d50d32-cbb2-4cff-842e-aa10da95f153" class="opentabletextbox ">
+                  <base-view type="component" lowercase_component="openTextBox" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header openTextBox__header">
+              <div class="component__header-inner openTextBox__header-inner">
+                  
+                    <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+                  <!--?lit$232975901$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+              </div>
+                  <div class="component__widget openTextBox__widget question-container">
+                      <!--?lit$232975901$--> <div class="openTextBox__preText"><!--?lit$232975901$--><p class="ReflectionQ">2.<span>&nbsp;&nbsp;</span>Now that you have examined a few scenarios and provided some possible disaster recovery measures, what other actionable recommendations are essential for a successful disaster recovery?</p></div>                         
+      
+                      <div class="openTextBox__textArea-container">
+                          <fieldset class="openTextBox__fieldset" tabindex="0">
+                          <legend class="openTextBox__legend">
+                            <!--?lit$232975901$--><!--?lit$232975901$-->Answer Area<!--?-->
+                          </legend>
+                          <textarea class="openTextBox__textArea" rows="3" name="answerArea" placeholder="Type your answer here." aria-label="Type your answer here.">&lt;!----&gt;&lt;!----&gt;</textarea>
+                          </fieldset>
+                      </div>
+                      <div tabindex="0" class="openTextBox__answerText answergray  show">
+                        <!--?lit$232975901$-->
+                      <!--?lit$232975901$--><p class="BodyTextL25Answer"><span class="AnswerGray"><span><span style="border:none">Answers will vary. For a recovery plan to be successful, responsible individuals should be assigned to lead the recovery process and perform the recovery measures. The plan should be tested if possible and all the employees should be trained in the recovery process and know what to do in the event of a disaster. The plan should be available for all the employees and be updated as necessary.</span></span></span></p>
+                    </div>
+
+                      <div class="btn__container">                        
+                        <button class="btn-text openTextBox__showButton show-answer hide"><!--?lit$232975901$-->Show Answer</button>     
+                        <button class="btn-text openTextBox__hideButton hide-answer show"><!--?lit$232975901$-->Hide Answer</button>                    
+                      </div>
+                      <!--?lit$232975901$--><!--?-->
+                  </div>
+              </div>
+            </div>
+          </div>
+        
+      </opentextbox-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$232975901$-->
+                    </div>
+                </div>
+            </div>
+        <sgpluse-opentextboxcontroller-view modelid="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+            <div class="openTextBoxController__button-container">
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__showButton show-answer hide"><!--?lit$232975901$-->Show All Answers</button>    
+                <button tabindex="0" class="btn-text showhidebtn openTextBoxController__hideButton hide-answer show"><!--?lit$232975901$-->Hide All Answers</button>    
+                <button class="btn-text resetbtn openTextBoxController__resetButton"><!--?lit$232975901$-->Clear My Responses</button>         
+            </div>
+            <!--?lit$232975901$--><hr>
+            <!--?lit$232975901$-->
+                <div class="post-text" tabindex="0">
+                    <!--?lit$232975901$--><span> <span style="padding-right:5px;float:left;font-family:arial;font-size:12px;">© 2017 - 2022 Cisco and/or its affiliates. All rights reserved. Cisco Public</span> </span>
+                </div>
+                   
+        </sgpluse-opentextboxcontroller-view><script></script></body>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            .querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            .querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      var event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        .querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        .querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        .querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      .querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </html>
