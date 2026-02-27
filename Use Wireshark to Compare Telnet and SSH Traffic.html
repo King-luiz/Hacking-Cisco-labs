@@ -1,0 +1,505 @@
+<!DOCTYPE html><html><head>
+<style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 1rem;
+      }
+      ol,
+      ul {
+        margin-bottom: 0in;
+      }
+      table {
+        margin-top: 1rem;
+        border: 1px solid gray;
+        width: 7in;
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > .openTableTextBox__table-header-data {
+        text-align: center;
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0in;
+        text-align: center;
+        line-height: 115%;
+        page-break-after: avoid;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        font-weight: bold;
+        background: #dbe5f1;
+        padding: 0.5rem;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .openTextBox__textArea-container {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 50%;
+      }
+      .openTableTextBox__fieldset {
+        padding: 5px;
+      }
+      td {
+        margin-top: 3pt;
+        margin-right: 0in;
+        margin-bottom: 3pt;
+        margin-left: 0in;
+        font-size: 10pt;
+        font-family: "Arial", sans-serif;
+        width: 98.85pt;
+        border: solid windowtext 1pt;
+        border-top: none;
+        padding: 0.7pt 5.75pt 0.7pt 5.75pt;
+      }
+      textarea {
+        width: 100%;
+      }
+      .answergray {
+        padding: 0.2rem;
+      }
+
+      .openTableTextBox__widget {
+        margin-top: 6pt;
+        margin-right: 0in;
+        margin-bottom: 6pt;
+        margin-left: 0.25in;
+      }
+
+      .show-answer,
+      .hide-answer {
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border: 0px;
+        cursor: pointer;
+        margin-bottom: 0.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .openTextBoxController__button-container {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .openTextBoxController__button-container .btn-text {
+        margin: 10px;
+      }
+
+      .btn-text {
+        border: 0px;
+        padding: 0.5rem 1rem;
+        background-color: #3d692b;
+        color: #fff;
+        border-radius: 0;
+        cursor: pointer;
+      }
+
+      .u-display-none {
+        display: none;
+      }
+      .openTextBox__postText, openTableTextBox__postText {
+        margin-top: 0.5rem;
+      }
+      .edit-comment {
+        display: none;
+      }
+      .js-heading-inner {
+        display: none;
+      }
+      .block__title-inner,
+      .article__title-inner {
+        display: block;
+        font-size: 1.5em;
+        margin-block-start: 0.83em;
+        margin-block-end: 0.83em;
+        margin-inline-start: 0px;
+        margin-inline-end: 0px;
+        font-weight: bold;
+      }
+      h2{
+        font-size: 1.25em;
+      }
+      h3{
+        font-size: 1.125em;
+      }
+      .table
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: solid windowtext 1pt;
+      }
+      table tbody tr th, table thead tr th{
+        border: solid windowtext 1pt;
+        background-color: #d6d8dc;
+      }
+      .openTableTextBox__answerText
+        table
+        > thead
+        > tr
+        > .openTableTextBox__table-header-data {
+        background: #f2dbdb !important;
+      }
+      .command-output > .table-inner > .table-wrapper > .table-widget > table,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > td,
+      .command-output
+        > .table-inner
+        > .table-wrapper
+        > .table-widget
+        > table
+        > tbody
+        > tr
+        > th {
+        border: none !important;
+        text-align: right !important;
+      }
+      .simple-table > .table-inner > .table-wrapper{
+        margin-left: 1.5rem;
+      }
+      .openTextBox__widget {
+        margin-left: 1.5rem;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      .answergray {
+        background-color: #ccc;
+      }
+      .openTableTextBox__widget > .answergray {
+        background-color: #fff !important;
+      }
+      li > ul,ol > li{
+        margin-left: 0px !important;
+      }
+      img {
+        width: 30%;
+        height: auto;
+        margin-top: 1rem;
+        margin-left: 3rem;
+      }
+      
+      .component__title{
+        font-family: inherit;
+        font-size: 1.65em;
+        font-weight: 600;
+        line-height: 1.5;
+      }
+
+      .component__body {
+        padding-top: 20px;
+        padding-bottom: 20px;
+      }
+
+      .accessibility-completion-indicator{
+        display: none;
+      }
+
+      .check__hidden {
+        display: none;
+      }
+
+      .check__button {
+        border: none;
+        border-radius: 6px !important;
+        background-color: #6abf4b;
+        color: #fff;
+        min-width: 100px;
+        margin: 0.625rem 0;
+        padding: 0.7rem;
+      }
+
+      .check__widget .check__solution .DevConfigGray {
+        background-color: rgb(214,216,220);
+        font-weight: bold;
+      }
+
+      .check-inner .check__widget .check__solution .DevConfigs {
+        margin: 0px;
+        line-height: 115%;
+        font-family: "Courier New", Courier, monospace;
+      }
+
+      .check__solution  {
+        line-height: 1.5;
+      }
+      .mcq__inner .mcq__widget .mcq__widget-inner {
+        margin-block: 1rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item {
+        display: flex;
+        gap: 0.2rem;
+      }
+      .mcq__inner .mcq__widget .mcq__item .mcq__item-label .mcq__item-text .screenReader-position-text{
+        display: none;
+      }
+    </style>
+
+</head><body><!---->
+            <div class="article 17912c01-1b53-4e42-9782-721060377e9a remove-padding-top remove-padding-bottom is-complete ">
+                <div class="article__inner">
+                <div class=" no-adaptive-scroll">
+                    <!--?lit$0230204793$-->
+                        <div class=""> 
+                            <base-view type="article" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="article__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="article__header ">
+              <div class="article__header-inner ">
+                  
+                    <!--?lit$0230204793$--> <div class=" article__title ">
+                      <!--?lit$0230204793$--><heading-view aria-hidden="true" id="17912c01-1b53-4e42-9782-721060377e9a-heading-view" headingtitle="Lab - Use Wireshark to Compare Telnet and SSH Traffic" modelid="17912c01-1b53-4e42-9782-721060377e9a" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="js-heading is-complete">
+        <div class="js-heading-inner" role="heading" id="article-heading" aria-level="2">
+        <span class="aria-label"> <!--?lit$0230204793$-->Complete &nbsp;<!--?lit$0230204793$-->Lab - Use Wireshark to Compare Telnet and SSH Traffic</span>
+        </div>
+      </div>
+    </heading-view>
+                        <div tabindex="0" role="heading" class="article__title-inner " aria-level="2">
+                        <span class="accessibility-completion-indicator"><!--?lit$0230204793$-->Complete </span>
+                        <!--?lit$0230204793$-->Lab - Use Wireshark to Compare Telnet and SSH Traffic</div>
+                      </div>
+                  <!--?lit$0230204793$-->
+                  <!--?lit$0230204793$-->
+                  <!--?lit$0230204793$-->
+                  <!--?lit$0230204793$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                            <div class="block__container " style="">
+                                <!--?lit$0230204793$--><!---->
+                                    <block-view modelid="1b6ff247-87a2-4669-9e78-5eecd7b781c2" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 50%;"><!---->
+                
+                <div data-socialgoodpulse-id="1b6ff247-87a2-4669-9e78-5eecd7b781c2" class="1b6ff247-87a2-4669-9e78-5eecd7b781c2 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="1b6ff247-87a2-4669-9e78-5eecd7b781c2" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$0230204793$-->
+                  <!--?lit$0230204793$-->
+                  <!--?lit$0230204793$-->
+                  <!--?lit$0230204793$-->
+                  <!--?lit$0230204793$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$0230204793$--><!----><text-view modelid="63784e49-1ed1-45bb-bcb7-7e48d24849aa" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="63784e49-1ed1-45bb-bcb7-7e48d24849aa" class="component text 63784e49-1ed1-45bb-bcb7-7e48d24849aa  is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$0230204793$-->
+                  <!--?lit$0230204793$-->
+                  <!--?lit$0230204793$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$0230204793$--><h2>Objectives</h2> <p class="Bulletlevel1">●<span style="font-size:7.0pt;font-family:Webdings"><span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span></span>Use Wireshark to capture web browser traffic.</p> <p class="Bulletlevel1">●<span style="font-size:7.0pt;font-family:Webdings"><span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span></span>Use Wireshark to capture Telnet traffic.</p> <p class="Bulletlevel1">●<span style="font-size:7.0pt;font-family:Webdings"><span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span></span>Use Wireshark to capture SSH traffic.</p> <h2>Background / Scenario</h2> <p class="BodyTextL25">Wireshark is a network protocol analyzer that lets you see what’s happening on your network at a microscopic level. You can capture packets and store them for offline analysis. Wireshark includes many tools for deep inspection of hundreds of network protocols. In this lab, you will use Wireshark to capture and inspect web traffic, Telnet traffic, and SSH traffic.</p> <h2>Required Resources</h2> <p class="BodyTextL25">PC with the <b>CSE-LABVM</b> installed in VirtualBox</p> <h2>Instructions</h2> <h2 style="margin-left:0in;text-indent:0in">Step 1: Open a terminal window in the CSE-LABVM.</h2> <p class="SubStepAlpha">a.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>Launch the <b>CSE-LABVM</b>.</p> <p class="SubStepAlpha">b.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>Double-click the <b>Terminal</b> icon to open a terminal.</p> <h2 style="margin-left:0in;text-indent:0in">Step 2: Explore the Wireshark protocol analyzer.</h2> <p class="SubStepAlpha">a.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>To capture traffic on your VM, you need to run Wireshark in promiscuous mode, which requires running with escalated privileges using <b>sudo</b>. Enter the <b>sudo wireshark</b> command, and then enter <b>password</b> for the password. The Wireshark graphical user interface (GUI) will open up.</p> <p class="CMD">cisco@labvm:~$ <b>sudo wireshark</b></p> <p class="CMD">[sudo] password for cisco: <b>password</b></p> <p class="CMDOutput">QStandardPaths: XDG_RUNTIME_DIR not set, defaulting to '/tmp/runtime-root'</p> <p class="SubStepAlpha">b.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>Under the listing of interfaces, select <b>any</b>, and then click <b>Capture</b> &gt; <b>Start</b> from the menus. Alternatively, you can click the shark fin icon. Wireshark will begin capturing packets. </p> <p class="SubStepAlpha">c.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>If you already have Firefox open, you may see traffic captured in the Wireshark interface. If Firefox is not open, go ahead and open it now. In Wireshark, you should now see captured TCP traffic in the top third of the window.</p> <p class="SubStepAlpha">d.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>In Firefox, enter www.cisco.com to visit the Cisco website. After the website loads, you can close Firefox.</p> <p class="SubStepAlpha">e.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>Return to Wireshark and click <b>Capture</b> &gt; <b>Stop</b> from the menus. Alternatively, you can click the red square button next to the shark fin.</p> <p class="SubStepAlpha">f.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>In Wireshark, you will see the filter field and three key panes or work areas: </p> <p class="Bulletlevel1" style="margin-left:.75in"><span style="font-size:7.0pt; font-family:Webdings">=<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span></span>The <b>Apply a display filter</b> field is directly below the toolbar. </p> <p class="Bulletlevel1" style="margin-left:.75in"><span style="font-size:7.0pt; font-family:Webdings">=<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span></span>The <b>Packet List</b> pane includes the following columns for each captured packet: </p> <p class="Bulletlevel2" style="margin-left:1.0in"><span style="font-family:&quot;Courier New&quot;">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span></span><b>No</b> - the number of the packet (in numerical order).</p> <p class="Bulletlevel2" style="margin-left:1.0in"><span style="font-family:&quot;Courier New&quot;">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span></span><b>Time</b> - the timestamp of the packet</p> <p class="Bulletlevel2" style="margin-left:1.0in"><span style="font-family:&quot;Courier New&quot;">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span></span><b>Source</b> - the source IP address of the packet</p> <p class="Bulletlevel2" style="margin-left:1.0in"><span style="font-family:&quot;Courier New&quot;">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span></span><b>Destination</b> - the destination IP address of the packet</p> <p class="Bulletlevel2" style="margin-left:1.0in"><span style="font-family:&quot;Courier New&quot;">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span></span><b>Protocol</b> - the protocol of the packet</p> <p class="Bulletlevel2" style="margin-left:1.0in"><span style="font-family:&quot;Courier New&quot;">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span></span><b>Length</b> - the number of bytes captured for this packet</p> <p class="Bulletlevel2" style="margin-left:1.0in"><span style="font-family:&quot;Courier New&quot;">o<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp; </span></span><b>Info</b> - additional information about the packet’s content</p> <p class="Bulletlevel1" style="margin-left:.75in"><span style="font-size:7.0pt; font-family:Webdings">=<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span></span>The <b>Packet Details</b> pane shows the protocols and protocol fields of the selected packet. Notice that the fields can be expanded or collapsed by clicking the arrow next to the field. </p> <p class="Bulletlevel1" style="margin-left:.75in"><span style="font-size:7.0pt; font-family:Webdings">=<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span></span>The <b>Packet Bytes</b> pane shows the byte details of the selected packet. As you select parts of the packet in the Packet Details pane, the corresponding bytes will be highlighted in the Packet Bytes pane. The left side shows the hexadecimal representation of the bytes, and the right side shows the ASCII representation.</p> <h2 style="margin-left:0in;text-indent:0in">Step 3: Capture and analyze unencrypted Telnet traffic.</h2> <p class="SubStepAlpha">a.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>Start a new capture. In the <b>Unsaved packets…</b> dialog box, click <b>Continue without Saving</b>. This will clear out the packets from your last capture and start a new capture.</p> <p class="SubStepAlpha">b.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>Double-click the <b>Terminal</b> icon to open a new terminal window. </p> <p class="SubStepAlpha">c.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>You can simulate a remote login to your VM by entering the <b>telnet localhost</b> command, and then logging in as <b>cisco</b> with <b>password</b> as the password.</p> <p class="CMD">cisco@labvm:~$ <b>telnet localhost</b></p> <p class="CMDOutput">Trying ::1...</p> <p class="CMDOutput">Trying 127.0.0.1...</p> <p class="CMDOutput">Connected to localhost.</p> <p class="CMDOutput">Escape character is '^]'.</p> <p class="CMDOutput">Ubuntu 20.04.2 LTS</p> <p class="CMD">labvm login: <b>cisco</b></p> <p class="CMD">Password: <b>password</b></p> <p class="CMDOutput">Welcome to Ubuntu 20.04.2 LTS (GNU/Linux 5.4.0-67-generic x86_64)</p> <p class="CMDOutput">&nbsp;* Documentation:&nbsp; https://help.ubuntu.com</p> <p class="CMDOutput">&nbsp;* Management:&nbsp;&nbsp;&nbsp;&nbsp; https://landscape.canonical.com</p> <p class="CMDOutput">&nbsp;* Support:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; https://ubuntu.com/advantage</p> <p class="CMDOutput">0 updates can be installed immediately.</p> <p class="CMDOutput">0 of these updates are security updates.</p> <p class="CMDOutput">Last login: Thu Mar 18 21:47:23 UTC 2021 on tty2</p> <p class="CMD">cisco@labvm:~$</p> <p class="SubStepAlpha">d.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>Enter the <b>exit</b> command to end the Telnet session:</p> <p class="CMD">cisco@labvm:~$ <b>exit</b></p> <p class="CMDOutput">logout</p> <p class="CMDOutput">Connection closed by foreign host.</p> <p class="CMD">cisco@labvm:~$</p> <p class="SubStepAlpha">e.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>Return to Wireshark and stop the capture. </p> <p class="SubStepAlpha">f.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>In the <b>Apply a display filter</b> field, type <b>telnet</b> and press <b>Enter</b> to filter for only Telnet packets. </p> <p class="SubStepAlpha">g.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>On the toolbar, click the magnifying glass icon to <b>Find a packet</b>. Additional search features are now shown below the <b>Apply a display filter</b> field.</p> <p class="SubStepAlpha">h.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>Click the arrows next to <b>Display filter</b> and change it to <b>String</b>. Then click the arrows next to Packet list and change it to <b>Packet details</b>.</p> <p class="SubStepAlpha">i.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>To find the packet requesting login information, type <b>labvm login:</b> in the field next to <b>String</b>, and then press <b>Enter</b> or click <b>Find</b>. Wireshark will highlight the packet that contains the "labvm login:" text string.</p> <p class="SubStepAlpha">j.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>In the <b>Packet Details</b> pane, click the arrow next to <b>Telnet</b> to expand its content. You should see that <b>labvm login:</b> is the data for this packet. The data for the packet is also shown in <b>Packet Bytes</b> pane. You can tell that the text was sent unencrypted because you can read it. </p> <p class="SubStepAlpha">k.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>In the <b>Packet List</b> pane, click the highlighted packet with <b>labvm login</b> as the data to select it.</p> <p class="SubStepAlpha">l.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>To find the username and password, use your down arrow on the keyboard to select the next packet. In the <b>Packet Details</b> pane, you should see the value for <b>Data</b> under <b>Telnet</b> is the first letter you typed in the field for "labvm login:" prompt, which was <b>c</b> for <b>cisco</b>. If you click the down arrow again, you will see the next packet's data is also <b>c</b>. This is because the packet is listed twice: one time for source sending to destination and again for destination receiving the packet. Because the source and destination are the same interface (loopback 127.0.0.1), the packet is listed twice by Wireshark.</p> <p class="SubStepAlpha">m.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp; </span>Continue to press the down arrow key until you reach the last packet with a data value of <b>o</b> for the username <b>cisco</b>.</p> <p class="SubStepAlpha">n.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>Continue to click the down arrow until you will see <b>Password:</b> in the <b>Data</b> field. Continue pressing the down arrow to read the data of the next eight packets which reveal, one letter at a time, that <b>password</b> is the password for user <b>cisco</b>.</p> <p class="SubStepAlpha">o.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>If you continue to press the down arrow through the rest of the captured packets, you will see all the text sent and received during the Telnet session, including your <b>exit</b> command and the <b>logout</b> message. </p> <h2 style="margin-left:0in;text-indent:0in">Step 4: Capture and analyze encrypted SSH traffic.</h2> <p class="SubStepAlpha">a.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>Start a new capture. In the <b>Unsaved packets…</b> dialog box, click <b>Continue without Saving</b>. This will clear out the packets from your last capture and start a new capture.</p> <p class="SubStepAlpha">b.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>Return to your open terminal window or start a new terminal session.</p> <p class="SubStepAlpha">c.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>To simulate an SSH login, enter the command <b>ssh localhost</b>. If this is your first time to use the command, the system warns you about the authenticity of localhost and asks you if you want to continue. Enter <b>yes</b>, and then <b>password</b> as the password to log in.</p> <p class="CMD">cisco@labvm:~$ <b>ssh localhost</b></p> <p class="CMDOutput"><span style="background:yellow; color: #000;">The authenticity of host 'localhost (::1)' can't be established.</span></p> <p class="CMDOutput">ECDSA key fingerprint is SHA256:lEvtfM55v9O8L88uvZ4Em/UL4ARo8jWGE1hV8mVnDhQ.</p> <p class="CMD">Are you sure you want to continue connecting (yes/no/[fingerprint])? <b>yes</b></p> <p class="CMDOutput">Warning: Permanently added 'localhost' (ECDSA) to the list of known hosts.</p> <p class="CMD">cisco@localhost's password: <b>password</b></p> <p class="CMDOutput">Welcome to Ubuntu 20.04.2 LTS (GNU/Linux 5.4.0-67-generic x86_64)</p> <p class="CMDOutput">&nbsp;* Documentation:&nbsp; https://help.ubuntu.com</p> <p class="CMDOutput">&nbsp;* Management:&nbsp;&nbsp;&nbsp;&nbsp; https://landscape.canonical.com</p> <p class="CMDOutput">&nbsp;* Support:&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://ubuntu.com/advantage</p> <p class="CMDOutput">0 updates can be installed immediately.</p> <p class="CMDOutput">0 of these updates are security updates.</p> <p class="CMDOutput">Last login: Thu Mar 25 14:01:58 2021 from localhost</p> <p class="CMD">cisco@labvm:~$</p> <p class="SubStepAlpha">d.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>Enter the <b>exit</b> command to end the SSH session.</p> <p class="SubStepAlpha">e.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp; </span>Return to Wireshark and stop the capture. If you left <b>telnet</b> as the search term in the <b>Apply a display filter</b> field, no packets will be listed. Change the search term from <b>telnet</b> to <b>ssh</b>. All the packets from your SSH session should now be shown in the <b>Packet List</b> pane.</p> <p class="SubStepAlpha">f.<span style="font:7.0pt &quot;Times New Roman&quot;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>In the <b>Packet Details</b> pane, expand the <b>SSH Protocol</b> fields to view the content. In the <b>Packet List</b> pane, click the first packet, and then use the down arrow to view a variety of the SSH packets. Notice that the <b>Data</b> for the <b>SSH Protocol</b> field shows that all the data is encrypted.</p></div>
+                      </div>
+                    </div>
+                  <!--?lit$0230204793$-->
+                  <!--?lit$0230204793$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!----><!---->
+                                    <block-view modelid="1da5010d-3f31-4ce0-a8d2-94bb0a509c88" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="block" style="width: 50%;"><!---->
+                
+                <div data-socialgoodpulse-id="1da5010d-3f31-4ce0-a8d2-94bb0a509c88" class="1da5010d-3f31-4ce0-a8d2-94bb0a509c88 block remove-padding-top remove-padding-bottom is-complete">
+                    <div class="block__inner">    
+                    <base-view type="block" modelid="1da5010d-3f31-4ce0-a8d2-94bb0a509c88" model="[object Object]" customclass="" lowercase_component="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="block__header-wrapper remove-padding-top remove-padding-bottom ">
+        <div class="block__header ">
+              <div class="block__header-inner ">
+                  
+                    <!--?lit$0230204793$-->
+                  <!--?lit$0230204793$-->
+                  <!--?lit$0230204793$-->
+                  <!--?lit$0230204793$-->
+                  <!--?lit$0230204793$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                        <div class="component__container">                            
+                                <!--?lit$0230204793$--><!----><text-view modelid="ef363e8a-4b3c-4469-8bf6-f5ce17fd2a85" class="is-full" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme" sgpulse-type="component"><!---->
+        <div class="text-inner component__inner">
+            <div class="component__header-container">
+                <div data-socialgoodpulse-id="ef363e8a-4b3c-4469-8bf6-f5ce17fd2a85" class="component text ef363e8a-4b3c-4469-8bf6-f5ce17fd2a85  is-full is-complete  ">
+                    <base-view type="component" lowercase_component="text" model="[object Object]" customclass="" is-touch="false" fullscreen="true" device="large" browser="Microsoft Edge" os="windows" dir="ltr" location="page" theme="light" orientation="landscape" themetype="article-base-theme"><!---->
+      <div class="component__header-wrapper  ">
+        <div class="component__header text__header">
+              <div class="component__header-inner text__header-inner">
+                  
+                    <!--?lit$0230204793$-->
+                  <!--?lit$0230204793$-->
+                  <!--?lit$0230204793$--> <div class="component__content">
+                      <div tabindex="0" class="component__body text__body">
+                        <div class="component__body-inner text__body-inner"><!--?lit$0230204793$--><span> <hr><span style="padding-right:5px;float:left;font-family:arial;font-size:12px;">© 2017 - 2022 Cisco and/or its affiliates. All rights reserved. Cisco Public</span> </span></div>
+                      </div>
+                    </div>
+                  <!--?lit$0230204793$-->
+                  <!--?lit$0230204793$-->
+              </div>
+          </div>
+        </div>
+      
+    </base-view>
+                </div>
+            </div>
+        </div>
+
+        <!-- div><div class="component__inner"></div></div -->
+        </text-view><!---->
+                            </div>                     
+                    </div>
+                </div>
+            </block-view>
+                                <!---->
+                            </div>
+                        </div>
+                        <!--?lit$0230204793$-->
+                    </div>
+                </div>
+            </div>
+        <script></script></body>
+<script>
+    window.addEventListener("load", function () {
+      console.log("loaded");
+      document.querySelectorAll(".answergray").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.classList.add("u-display-none");
+      });
+      document.querySelectorAll(".show-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            .querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.remove("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      document.querySelectorAll(".hide-answer").forEach(function (ele) {
+        ele.addEventListener("click", function (e) {
+          e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+          e.currentTarget
+            .closest(".question-container")
+            .querySelectorAll(".answergray")
+            .forEach(function (ele) {
+              ele.classList.add("u-display-none");
+            });
+          ele.classList.add("u-display-none");
+        });
+      });
+      var event = new Event("click", {
+        bubbles: true,
+        cancelable: true,
+      });
+      document
+        .querySelectorAll(".openTextBoxController__showButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.nextElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document.querySelectorAll(".show-answer").forEach(function (ele) {
+              ele.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        .querySelectorAll(".openTextBoxController__hideButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            e.currentTarget.previousElementSibling.classList.remove("u-display-none");
+            ele.classList.add("u-display-none");
+            document.querySelectorAll(".hide-answer").forEach(function (ele) {
+              ele.dispatchEvent(event);
+            });
+          });
+        });
+
+      document
+        .querySelectorAll(".openTextBoxController__resetButton")
+        .forEach(function (ele) {
+          ele.addEventListener("click", function (e) {
+            document.querySelectorAll("textArea").forEach(function (ele) {
+              ele.value = "";
+            });
+          });
+        });
+
+      document
+      .querySelectorAll('textarea')
+      .forEach(function (ele){
+        ele.defaultValue = ele.defaultValue.replace(/<!--.*?-->/g, '');
+      })
+        let checkButtonLabel = "check_button_label_placeHolder";
+        let hideButtonLabel = "hide_button_label_placeHolder";
+        document.querySelectorAll(".check__button").forEach(function (ele) {
+        let answerBox = document.querySelector(".check__solution")
+        if (!answerBox.classList.contains("check__hidden")) {
+          answerBox.classList.add("check__hidden");
+          ele.innerText = checkButtonLabel;
+        }
+          ele.addEventListener("click", function (e) {
+            if (answerBox.classList.contains("check__hidden")) {
+              answerBox.classList.remove("check__hidden")
+              ele.innerText = hideButtonLabel;
+            } else {
+              answerBox.classList.add("check__hidden")
+              ele.innerText = checkButtonLabel;
+            }
+          })
+        })
+    });
+  </script>
+  </html>
